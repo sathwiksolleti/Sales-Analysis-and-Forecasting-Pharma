@@ -423,6 +423,14 @@ def apply_custom_css():
         /* Remove background override to allow default styling */
     }
     
+    /* Fix forecast controls dropdown text - make white */
+    .stSelectbox div[data-testid="stSelectbox"] input,
+    .stSelectbox div[data-testid="stSelectbox"] span,
+    .stSelectbox div[data-testid="stSelectbox"] div,
+    .stSelectbox div[data-testid="stSelectbox"] p {
+        color: white !important;
+    }
+    
     /* Ensure ALL Streamlit text elements are visible */
     .stMarkdown h1,
     .stMarkdown h2,
