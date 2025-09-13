@@ -1265,8 +1265,8 @@ if uploaded_files is not None and len(uploaded_files) > 0:
     # Show combined data summary
     if all_data:
         st.markdown("""
-        <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
-            <h3 style="color: #000000; margin: 0 0 1rem 0; font-weight: 700;">📊 Combined Data Summary</h3>
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+            <h3 style="color: #ffffff; margin: 0 0 1rem 0; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">📊 Combined Data Summary</h3>
         </div>
         """, unsafe_allow_html=True)
         combined_df = pd.concat(all_data, ignore_index=True)
@@ -2243,9 +2243,9 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         
         # Model explanations with better visibility
         st.markdown("""
-        <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
-            <h3 style="color: #000000; margin: 0; font-weight: 700;">📚 Model Explanations</h3>
-            <p style="color: #666666; margin: 0.5rem 0 0 0; font-weight: 500;">Detailed information about each forecasting model</p>
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+            <h3 style="color: #ffffff; margin: 0; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">📚 Model Explanations</h3>
+            <p style="color: #ffffff; margin: 0.5rem 0 0 0; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); opacity: 0.9;">Detailed information about each forecasting model</p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -2348,9 +2348,9 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         
         # Performance insights with better visibility
         st.markdown("""
-        <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
-            <h3 style="color: #000000; margin: 0; font-weight: 700;">💡 Performance Insights</h3>
-            <p style="color: #666666; margin: 0.5rem 0 0 0; font-weight: 500;">Key metrics and analysis of model performance</p>
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+            <h3 style="color: #ffffff; margin: 0; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">💡 Performance Insights</h3>
+            <p style="color: #ffffff; margin: 0.5rem 0 0 0; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); opacity: 0.9;">Key metrics and analysis of model performance</p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -2415,16 +2415,16 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
             
             # Additional insights with better visibility
             st.markdown("""
-            <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
-                <h3 style="color: #000000; margin: 0; font-weight: 700;">📈 Model Performance Analysis</h3>
-                <p style="color: #666666; margin: 0.5rem 0 0 0; font-weight: 500;">Detailed analysis and comparison of model performance</p>
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+                <h3 style="color: #ffffff; margin: 0; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">📈 Model Performance Analysis</h3>
+                <p style="color: #ffffff; margin: 0.5rem 0 0 0; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); opacity: 0.9;">Detailed analysis and comparison of model performance</p>
             </div>
             """, unsafe_allow_html=True)
             
             col1, col2 = st.columns(2)
             
             with col1:
-                st.markdown("<div style='color: #000000; font-weight: 700; margin-bottom: 1rem;'>🎯 Accuracy Distribution</div>", unsafe_allow_html=True)
+                st.markdown("<div style='color: #ffffff; font-weight: 700; margin-bottom: 1rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.5rem; border-radius: 8px;'>🎯 Accuracy Distribution</div>", unsafe_allow_html=True)
                 accuracy_data = {
                     'Model': df_ranked['model'].tolist(),
                     'Accuracy %': [(1 - wmape) * 100 for wmape in df_ranked['wmape'].tolist()]
@@ -2433,7 +2433,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                 st.dataframe(accuracy_df, width='stretch')
             
             with col2:
-                st.markdown("<div style='color: #000000; font-weight: 700; margin-bottom: 1rem;'>📊 Performance Comparison</div>", unsafe_allow_html=True)
+                st.markdown("<div style='color: #ffffff; font-weight: 700; margin-bottom: 1rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.5rem; border-radius: 8px;'>📊 Performance Comparison</div>", unsafe_allow_html=True)
                 # Create a simple comparison chart
                 fig_comparison = px.bar(
                     accuracy_df, 
