@@ -1,115 +1,109 @@
 #!/usr/bin/env python3
 """
-Simplified training script for Streamlit Cloud deployment
+Ultra-simplified training script for Streamlit Cloud deployment
+Uses only built-in Python libraries - no external dependencies
 """
 import os
 import sys
-import pandas as pd
-import numpy as np
-from pathlib import Path
+import csv
+import random
+from datetime import datetime, timedelta
 
 def create_sample_forecast():
     """Create sample forecast data for demo purposes"""
     print("Creating sample forecast data...")
     
-    # Create sample data
-    dates = pd.date_range(start='2024-01-01', periods=52, freq='W')
+    # Create output directory
+    os.makedirs("data/outputs", exist_ok=True)
+    
+    # Create sample data using only built-in libraries
     skus = ['M01AB', 'M01AE', 'Hour']
     regions = ['R1', 'R2', 'R3']
+    models = ['ETS', 'SARIMAX', 'LightGBM']
     
-    forecast_data = []
-    for sku in skus:
-        for region in regions:
-            for date in dates:
-                forecast_data.append({
-                    'date': date,
-                    'sku_id': sku,
-                    'region_id': region,
-                    'forecast': np.random.randint(50, 200),
-                    'model': np.random.choice(['ETS', 'SARIMAX', 'LightGBM'])
-                })
+    # Create CSV file
+    with open("data/outputs/forecast.csv", "w", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['date', 'sku_id', 'region_id', 'forecast', 'model'])
+        
+        # Generate 52 weeks of data
+        start_date = datetime(2024, 1, 1)
+        for week in range(52):
+            date = start_date + timedelta(weeks=week)
+            date_str = date.strftime('%Y-%m-%d')
+            
+            for sku in skus:
+                for region in regions:
+                    forecast = random.randint(50, 200)
+                    model = random.choice(models)
+                    writer.writerow([date_str, sku, region, forecast, model])
     
-    df_forecast = pd.DataFrame(forecast_data)
-    
-    # Save forecast data
-    output_dir = Path("data/outputs")
-    output_dir.mkdir(parents=True, exist_ok=True)
-    
-    df_forecast.to_csv(output_dir / "forecast.csv", index=False)
-    print(f"✅ Created forecast.csv with {len(df_forecast)} records")
-    
-    return df_forecast
+    print("✅ Created forecast.csv with sample data")
 
 def create_sample_metrics():
     """Create sample metrics data"""
     print("Creating sample metrics data...")
     
-    metrics_data = []
-    for sku in ['M01AB', 'M01AE', 'Hour']:
-        for model in ['ETS', 'SARIMAX', 'LightGBM']:
-            metrics_data.append({
-                'sku_id': sku,
-                'model': model,
-                'wmape': np.random.uniform(0.001, 0.01),
-                'smape': np.random.uniform(0.001, 0.01),
-                'bias': np.random.uniform(-0.001, 0.001),
-                'mase': np.random.uniform(0.001, 0.02)
-            })
+    skus = ['M01AB', 'M01AE', 'Hour']
+    models = ['ETS', 'SARIMAX', 'LightGBM']
     
-    df_metrics = pd.DataFrame(metrics_data)
-    df_metrics.to_csv("data/outputs/metrics.csv", index=False)
-    print(f"✅ Created metrics.csv with {len(df_metrics)} records")
+    with open("data/outputs/metrics.csv", "w", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['sku_id', 'model', 'wmape', 'smape', 'bias', 'mase'])
+        
+        for sku in skus:
+            for model in models:
+                wmape = round(random.uniform(0.001, 0.01), 6)
+                smape = round(random.uniform(0.001, 0.01), 6)
+                bias = round(random.uniform(-0.001, 0.001), 6)
+                mase = round(random.uniform(0.001, 0.02), 6)
+                writer.writerow([sku, model, wmape, smape, bias, mase])
     
-    return df_metrics
+    print("✅ Created metrics.csv with sample data")
 
 def create_sample_leaderboard():
     """Create sample leaderboard data"""
     print("Creating sample leaderboard data...")
     
-    leaderboard_data = []
-    for model in ['ETS', 'SARIMAX', 'LightGBM']:
-        leaderboard_data.append({
-            'model': model,
-            'avg_wmape': np.random.uniform(0.001, 0.01),
-            'avg_smape': np.random.uniform(0.001, 0.01),
-            'avg_bias': np.random.uniform(-0.001, 0.001),
-            'avg_mase': np.random.uniform(0.001, 0.02),
-            'rank': np.random.randint(1, 4)
-        })
+    models = ['ETS', 'SARIMAX', 'LightGBM']
     
-    df_leaderboard = pd.DataFrame(leaderboard_data)
-    df_leaderboard.to_csv("data/outputs/model_leaderboard.csv", index=False)
-    print(f"✅ Created model_leaderboard.csv with {len(df_leaderboard)} records")
+    with open("data/outputs/model_leaderboard.csv", "w", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['model', 'avg_wmape', 'avg_smape', 'avg_bias', 'avg_mase', 'rank'])
+        
+        for i, model in enumerate(models, 1):
+            avg_wmape = round(random.uniform(0.001, 0.01), 6)
+            avg_smape = round(random.uniform(0.001, 0.01), 6)
+            avg_bias = round(random.uniform(-0.001, 0.001), 6)
+            avg_mase = round(random.uniform(0.001, 0.02), 6)
+            writer.writerow([model, avg_wmape, avg_smape, avg_bias, avg_mase, i])
     
-    return df_leaderboard
+    print("✅ Created model_leaderboard.csv with sample data")
 
 def create_sample_best_models():
     """Create sample best models data"""
     print("Creating sample best models data...")
     
-    best_models_data = []
-    for sku in ['M01AB', 'M01AE', 'Hour']:
-        best_models_data.append({
-            'sku_id': sku,
-            'best_model': np.random.choice(['ETS', 'SARIMAX', 'LightGBM']),
-            'best_wmape': np.random.uniform(0.001, 0.005),
-            'best_smape': np.random.uniform(0.001, 0.005),
-            'best_bias': np.random.uniform(-0.001, 0.001),
-            'best_mase': np.random.uniform(0.001, 0.01)
-        })
+    skus = ['M01AB', 'M01AE', 'Hour']
+    models = ['ETS', 'SARIMAX', 'LightGBM']
     
-    df_best = pd.DataFrame(best_models_data)
-    df_best.to_csv("data/outputs/best_models_per_sku.csv", index=False)
-    print(f"✅ Created best_models_per_sku.csv with {len(df_best)} records")
+    with open("data/outputs/best_models_per_sku.csv", "w", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['sku_id', 'best_model', 'best_wmape', 'best_smape', 'best_bias', 'best_mase'])
+        
+        for sku in skus:
+            best_model = random.choice(models)
+            best_wmape = round(random.uniform(0.001, 0.005), 6)
+            best_smape = round(random.uniform(0.001, 0.005), 6)
+            best_bias = round(random.uniform(-0.001, 0.001), 6)
+            best_mase = round(random.uniform(0.001, 0.01), 6)
+            writer.writerow([sku, best_model, best_wmape, best_smape, best_bias, best_mase])
     
-    return df_best
+    print("✅ Created best_models_per_sku.csv with sample data")
 
 if __name__ == "__main__":
     try:
-        print("🚀 Starting simplified training pipeline...")
-        
-        # Create output directory
-        os.makedirs("data/outputs", exist_ok=True)
+        print("🚀 Starting ultra-simplified training pipeline...")
         
         # Create sample data files
         create_sample_forecast()
