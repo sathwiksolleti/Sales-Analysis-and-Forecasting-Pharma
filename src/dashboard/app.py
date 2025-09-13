@@ -55,6 +55,34 @@ def apply_custom_css():
         color: #333 !important;
     }
     
+    /* Override any transparent or hidden text */
+    .main .block-container *[style*="opacity: 0"],
+    .main .block-container *[style*="color: transparent"],
+    .main .block-container *[style*="visibility: hidden"] {
+        opacity: 1 !important;
+        color: #333 !important;
+        visibility: visible !important;
+    }
+    
+    /* Force all text elements to be visible */
+    .main .block-container h1,
+    .main .block-container h2,
+    .main .block-container h3,
+    .main .block-container h4,
+    .main .block-container h5,
+    .main .block-container h6,
+    .main .block-container p,
+    .main .block-container div,
+    .main .block-container span,
+    .main .block-container strong,
+    .main .block-container em,
+    .main .block-container b,
+    .main .block-container i {
+        color: #333 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
     .main .block-container h1,
     .main .block-container h2,
     .main .block-container h3,
@@ -115,6 +143,34 @@ def apply_custom_css():
         color: #333 !important;
     }
     
+    /* Streamlit specific classes for text visibility */
+    .stApp .stMarkdown,
+    .stApp .stText,
+    .stApp .stAlert,
+    .stApp .stSuccess,
+    .stApp .stWarning,
+    .stApp .stInfo,
+    .stApp .stError,
+    .stApp .stSubheader,
+    .stApp .stHeader,
+    .stApp .stTitle {
+        color: #333 !important;
+    }
+    
+    /* Force visibility for all Streamlit elements */
+    .stApp * {
+        color: #333 !important;
+    }
+    
+    /* Override any hidden or transparent elements */
+    .stApp *[style*="opacity: 0"],
+    .stApp *[style*="color: transparent"],
+    .stApp *[style*="visibility: hidden"] {
+        opacity: 1 !important;
+        color: #333 !important;
+        visibility: visible !important;
+    }
+    
     /* Sidebar text visibility */
     .css-1d391kg {
         color: #333 !important;
@@ -138,6 +194,57 @@ def apply_custom_css():
     .stButton label,
     .stTextInput label,
     .stFileUploader label {
+        color: #333 !important;
+    }
+    
+    /* Ensure ALL Streamlit text elements are visible */
+    .stMarkdown h1,
+    .stMarkdown h2,
+    .stMarkdown h3,
+    .stMarkdown h4,
+    .stMarkdown h5,
+    .stMarkdown h6,
+    .stMarkdown p,
+    .stMarkdown div,
+    .stMarkdown span,
+    .stMarkdown strong,
+    .stMarkdown em {
+        color: #333 !important;
+    }
+    
+    /* Force visibility for all headers and subheaders */
+    .element-container h1,
+    .element-container h2,
+    .element-container h3,
+    .element-container h4,
+    .element-container h5,
+    .element-container h6 {
+        color: #333 !important;
+    }
+    
+    /* Ensure metric cards text is visible */
+    .metric-card h1,
+    .metric-card h2,
+    .metric-card h3,
+    .metric-card h4,
+    .metric-card h5,
+    .metric-card h6,
+    .metric-card p,
+    .metric-card div,
+    .metric-card span {
+        color: #333 !important;
+    }
+    
+    /* Force visibility for section headers */
+    .section-header h1,
+    .section-header h2,
+    .section-header h3,
+    .section-header h4,
+    .section-header h5,
+    .section-header h6,
+    .section-header p,
+    .section-header div,
+    .section-header span {
         color: #333 !important;
     }
     
