@@ -431,6 +431,28 @@ def apply_custom_css():
         color: white !important;
     }
     
+    /* More comprehensive dropdown text visibility fix */
+    .stSelectbox div[data-testid="stSelectbox"] *,
+    .stSelectbox div[data-testid="stSelectbox"] input[type="text"],
+    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg,
+    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg *,
+    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg input,
+    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg span,
+    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg div,
+    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg p {
+        color: white !important;
+    }
+    
+    /* Target all selectbox elements */
+    .stSelectbox *,
+    .stSelectbox input,
+    .stSelectbox span,
+    .stSelectbox div,
+    .stSelectbox p,
+    .stSelectbox label {
+        color: white !important;
+    }
+    
     /* Ensure ALL Streamlit text elements are visible */
     .stMarkdown h1,
     .stMarkdown h2,
