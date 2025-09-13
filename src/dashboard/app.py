@@ -201,7 +201,7 @@ def apply_custom_css():
     option,
     textarea {
         color: #333 !important;
-        background-color: white !important;
+        /* Remove background override to allow default styling */
     }
     
     /* Fix Streamlit specific input classes */
@@ -210,7 +210,7 @@ def apply_custom_css():
     .css-1d391kg option,
     .css-1d391kg textarea {
         color: #333 !important;
-        background-color: white !important;
+        /* Remove background override to allow default styling */
     }
     
     /* Final comprehensive text visibility fix */
@@ -252,8 +252,7 @@ def apply_custom_css():
     .stButton > button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]),
     .stButton > button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) * {
         color: #333 !important;
-        background-color: white !important;
-        border: 1px solid #ddd !important;
+        /* Remove white background override to allow gradients */
     }
     
     /* Fix file upload section text */
@@ -283,15 +282,17 @@ def apply_custom_css():
     button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) div,
     button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) p {
         color: #333 !important;
+        /* Remove background override to allow gradients */
     }
     
     /* Fix Streamlit button specific classes */
-    .css-1d391kg button,
-    .css-1d391kg button *,
-    .css-1d391kg button span,
-    .css-1d391kg button div,
-    .css-1d391kg button p {
+    .css-1d391kg button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]),
+    .css-1d391kg button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) *,
+    .css-1d391kg button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) span,
+    .css-1d391kg button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) div,
+    .css-1d391kg button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) p {
         color: #333 !important;
+        /* Remove background override to allow gradients */
     }
     
     /* Fix specific download button text from images */
@@ -300,9 +301,8 @@ def apply_custom_css():
     button[data-testid="baseButton-secondary"] span,
     button[data-testid="baseButton-secondary"] div,
     button[data-testid="baseButton-secondary"] p {
-        color: #333 !important;
-        background-color: white !important;
-        border: 1px solid #ddd !important;
+        color: white !important;
+        /* Remove background override to allow gradients */
     }
     
     /* Fix file uploader specific text */
@@ -320,8 +320,7 @@ def apply_custom_css():
     div[data-testid="stFileUploaderDropzone"] button div,
     div[data-testid="stFileUploaderDropzone"] button p {
         color: #333 !important;
-        background-color: white !important;
-        border: 1px solid #ddd !important;
+        /* Remove background override to allow default styling */
     }
     
     /* Override any remaining low contrast text */
@@ -405,7 +404,7 @@ def apply_custom_css():
     .stSelectbox .css-1d391kg,
     .stSelectbox .css-1d391kg * {
         color: #333 !important;
-        background-color: white !important;
+        /* Remove background override to allow default styling */
     }
     
     /* Fix selectbox input text */
@@ -413,7 +412,7 @@ def apply_custom_css():
     .stSelectbox input[type="text"],
     .stSelectbox .css-1d391kg input {
         color: #333 !important;
-        background-color: white !important;
+        /* Remove background override to allow default styling */
     }
     
     /* Fix dropdown selected value text */
@@ -421,7 +420,7 @@ def apply_custom_css():
     .stSelectbox div[data-testid="stSelectbox"] > div > div,
     .stSelectbox div[data-testid="stSelectbox"] > div > div > div {
         color: #333 !important;
-        background-color: white !important;
+        /* Remove background override to allow default styling */
     }
     
     /* Ensure ALL Streamlit text elements are visible */
