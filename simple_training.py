@@ -17,7 +17,7 @@ def create_sample_forecast():
     os.makedirs("data/outputs", exist_ok=True)
     
     # Create sample data using only built-in libraries
-    skus = ['M01AB', 'M01AE', 'Hour']
+    skus = ['M01AB', 'M01AE', 'N02BA', 'N02BE', 'N05B', 'N05C', 'R03', 'R06']
     regions = ['R1', 'R2', 'R3']
     models = ['ETS', 'SARIMAX', 'LightGBM']
     
@@ -44,7 +44,7 @@ def create_sample_metrics():
     """Create sample metrics data"""
     print("Creating sample metrics data...")
     
-    skus = ['M01AB', 'M01AE', 'Hour']
+    skus = ['M01AB', 'M01AE', 'N02BA', 'N02BE', 'N05B', 'N05C', 'R03', 'R06']
     models = ['ETS', 'SARIMAX', 'LightGBM']
     
     with open("data/outputs/metrics.csv", "w", newline="") as csvfile:
@@ -84,7 +84,7 @@ def create_sample_best_models():
     """Create sample best models data"""
     print("Creating sample best models data...")
     
-    skus = ['M01AB', 'M01AE', 'Hour']
+    skus = ['M01AB', 'M01AE', 'N02BA', 'N02BE', 'N05B', 'N05C', 'R03', 'R06']
     models = ['ETS', 'SARIMAX', 'LightGBM']
     
     with open("data/outputs/best_models_per_sku.csv", "w", newline="") as csvfile:
