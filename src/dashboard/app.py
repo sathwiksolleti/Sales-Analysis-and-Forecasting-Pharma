@@ -114,22 +114,20 @@ def apply_custom_css():
     
     /* Enhanced metric cards */
     .metric-card {
-        background: rgba(255, 255, 255, 0.95);
+        background: transparent;
         padding: 1.5rem;
         border-radius: 15px;
-        box-shadow: var(--card-shadow);
-        border-left: 4px solid var(--primary-color);
+        box-shadow: none;
+        border: none;
         transition: all 0.3s ease;
         margin-bottom: 1rem;
-        backdrop-filter: var(--backdrop-blur);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: none;
     }
     
     .metric-card:hover {
         transform: translateY(-3px);
-        box-shadow: var(--hover-shadow);
-        border-left-color: var(--secondary-color);
-        background: rgba(255, 255, 255, 1);
+        box-shadow: none;
+        background: transparent;
     }
     
     .metric-value {
@@ -151,16 +149,16 @@ def apply_custom_css():
     
     /* Enhanced section headers */
     .section-header {
-        background: rgba(255, 255, 255, 0.9);
-        color: #333;
+        background: transparent;
+        color: #000000;
         padding: 1.2rem 1.5rem;
         border-radius: 12px;
         margin: 2rem 0 1rem 0;
         font-size: 1.5rem;
-        font-weight: 600;
-        box-shadow: var(--card-shadow);
-        border-left: 4px solid var(--primary-color);
-        backdrop-filter: var(--backdrop-blur);
+        font-weight: 700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        border: none;
+        backdrop-filter: none;
     }
     
     /* Enhanced data tables */
@@ -578,8 +576,10 @@ def apply_custom_css():
     
     /* Fix section header text */
     .section-header {
-        color: #333333 !important;
-        font-weight: 600 !important;
+        color: #000000 !important;
+        font-weight: 700 !important;
+        background: transparent !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
     }
     
     /* Fix main header text */
@@ -642,13 +642,15 @@ def apply_custom_css():
     
     /* Fix section indicator text */
     .metric-card h3 {
-        color: #1f77b4 !important;
+        color: #000000 !important;
         font-weight: 700 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
     }
     
     .metric-card p {
-        color: #666666 !important;
+        color: #000000 !important;
         font-weight: 500 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2) !important;
     }
     
     /* Fix metric component visibility */
@@ -1079,10 +1081,10 @@ section_names = {
 current_section = st.session_state.get('current_section', 'overview')
 st.markdown(f"""
 <div class="metric-card" style="margin-bottom: 2rem; text-align: center;">
-    <h3 style="color: var(--primary-color); margin: 0;">
+    <h3 style="color: #000000; margin: 0; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
         {section_icons.get(current_section, '📊')} {section_names.get(current_section, 'Dashboard Overview')}
     </h3>
-    <p style="color: #666; margin: 0.5rem 0 0 0;">Currently viewing: {current_section.title()} section</p>
+    <p style="color: #000000; margin: 0.5rem 0 0 0; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">Currently viewing: {current_section.title()} section</p>
 </div>
 """, unsafe_allow_html=True)
 
