@@ -171,6 +171,81 @@ def apply_custom_css():
         visibility: visible !important;
     }
     
+    /* Comprehensive widget text visibility fixes */
+    .stSelectbox,
+    .stTextInput,
+    .stNumberInput,
+    .stSlider,
+    .stCheckbox,
+    .stRadio,
+    .stButton,
+    .stFileUploader {
+        color: #333 !important;
+    }
+    
+    .stSelectbox *,
+    .stTextInput *,
+    .stNumberInput *,
+    .stSlider *,
+    .stCheckbox *,
+    .stRadio *,
+    .stButton *,
+    .stFileUploader * {
+        color: #333 !important;
+    }
+    
+    /* Fix all input field text */
+    input[type="text"],
+    input[type="number"],
+    select,
+    option,
+    textarea {
+        color: #333 !important;
+        background-color: white !important;
+    }
+    
+    /* Fix Streamlit specific input classes */
+    .css-1d391kg input,
+    .css-1d391kg select,
+    .css-1d391kg option,
+    .css-1d391kg textarea {
+        color: #333 !important;
+        background-color: white !important;
+    }
+    
+    /* Final comprehensive text visibility fix */
+    .main .block-container *,
+    .stApp *,
+    .stSelectbox *,
+    .stTextInput *,
+    .stNumberInput *,
+    .stSlider *,
+    .stCheckbox *,
+    .stRadio *,
+    .stButton *,
+    .stFileUploader *,
+    .stMarkdown *,
+    .stAlert *,
+    .stSuccess *,
+    .stWarning *,
+    .stInfo *,
+    .stError * {
+        color: #333 !important;
+    }
+    
+    /* Override any light text colors */
+    *[style*="color: #f0f0f0"],
+    *[style*="color: #e0e0e0"],
+    *[style*="color: #d0d0d0"],
+    *[style*="color: #c0c0c0"],
+    *[style*="color: #b0b0b0"],
+    *[style*="color: #a0a0a0"],
+    *[style*="color: #909090"],
+    *[style*="color: #808080"],
+    *[style*="color: #707070"] {
+        color: #333 !important;
+    }
+    
     /* Sidebar text visibility */
     .css-1d391kg {
         color: #333 !important;
@@ -195,6 +270,32 @@ def apply_custom_css():
     .stTextInput label,
     .stFileUploader label {
         color: #333 !important;
+    }
+    
+    /* Fix dropdown text visibility */
+    .stSelectbox > div > div,
+    .stSelectbox select,
+    .stSelectbox option,
+    .stSelectbox .css-1d391kg,
+    .stSelectbox .css-1d391kg * {
+        color: #333 !important;
+        background-color: white !important;
+    }
+    
+    /* Fix selectbox input text */
+    .stSelectbox input,
+    .stSelectbox input[type="text"],
+    .stSelectbox .css-1d391kg input {
+        color: #333 !important;
+        background-color: white !important;
+    }
+    
+    /* Fix dropdown selected value text */
+    .stSelectbox div[data-testid="stSelectbox"] > div,
+    .stSelectbox div[data-testid="stSelectbox"] > div > div,
+    .stSelectbox div[data-testid="stSelectbox"] > div > div > div {
+        color: #333 !important;
+        background-color: white !important;
     }
     
     /* Ensure ALL Streamlit text elements are visible */
