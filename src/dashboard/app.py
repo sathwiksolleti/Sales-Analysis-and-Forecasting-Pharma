@@ -1255,10 +1255,20 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         </div>
         """, unsafe_allow_html=True)
         
-    left, right = st.columns([1,1])
-    
-    # Filter out SKUs with "hour", "month", "year" in their ID (operational/time data, not sales data)
-    forecast_skus = df_fcst[~df_fcst["sku_id"].str.contains("hour|month|year", case=False, na=False)]["sku_id"].unique()
+        # Safely load forecast data
+        try:
+            df_fcst = pd.read_csv("data/outputs/forecast.csv")
+        except:
+            st.warning("⚠️ No forecast data available. Please run the analysis first.")
+            st.stop()
+        
+        left, right = st.columns([1,1])
+        
+        # Filter out SKUs with "hour", "month", "year" in their ID (operational/time data, not sales data)
+        if not df_fcst.empty:
+            forecast_skus = df_fcst[~df_fcst["sku_id"].str.contains("hour|month|year", case=False, na=False)]["sku_id"].unique()
+        else:
+            forecast_skus = []
     
     # Create drug name mapping for better display
     drug_mapping = {
@@ -1272,14 +1282,22 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         'R06': 'R06 - Antihistamines for systemic use'
     }
     
-    # Create display names for selectbox
-    sku_options = [(sku, drug_mapping.get(sku, sku)) for sku in sorted(forecast_skus.tolist())]
-    sku_display = left.selectbox("Drug Name (SKU)", sku_options, format_func=lambda x: x[1])
-    sku = sku_display[0]  # Get the actual SKU ID
-    
-    # Time period options
-    time_periods = ['Weekly', 'Monthly', 'Yearly']
-    time_period = left.selectbox("Time Period", time_periods)
+    # Check if we have forecast data to display
+    if len(forecast_skus) == 0:
+        st.info("📊 No forecast data available. Please run the analysis first by clicking 'Generate Sales & Forecast'.")
+    else:
+        try:
+            # Create display names for selectbox
+            sku_options = [(sku, drug_mapping.get(sku, sku)) for sku in sorted(forecast_skus.tolist())]
+            sku_display = left.selectbox("Drug Name (SKU)", sku_options, format_func=lambda x: x[1])
+            sku = sku_display[0]  # Get the actual SKU ID
+        
+            # Time period options
+            time_periods = ['Weekly', 'Monthly', 'Yearly']
+            time_period = left.selectbox("Time Period", time_periods)
+        except Exception as e:
+            st.error(f"Error loading forecast controls: {str(e)}")
+            st.stop()
     
     # Filter data based on selection
     if time_period == 'Weekly':
@@ -1957,6 +1975,22 @@ if st.session_state.current_section == "download" and st.session_state.analysis_
         <p style="color: white; opacity: 0.9;">Download detailed analysis reports, forecasts, and inventory recommendations for your pharmaceutical sales data.</p>
     </div>
     """, unsafe_allow_html=True)
+    
+    # Initialize data variables safely
+    try:
+        df_fcst = pd.read_csv("data/outputs/forecast.csv")
+    except:
+        df_fcst = pd.DataFrame()
+    
+    try:
+        df_m = pd.read_csv("data/outputs/metrics.csv")
+    except:
+        df_m = pd.DataFrame()
+    
+    try:
+        inventory_df = pd.read_csv("data/outputs/inventory_planning.csv")
+    except:
+        inventory_df = pd.DataFrame()
     
     col1, col2, col3, col4 = st.columns(4)
     
