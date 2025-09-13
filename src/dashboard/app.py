@@ -210,6 +210,64 @@ def apply_custom_css():
         background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
     }
     
+    /* Style navigation buttons with main heading background */
+    .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 0.75rem 1.5rem !important;
+        font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        margin: 0.25rem 0 !important;
+    }
+    
+    .stButton > button:hover {
+        background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Style the Quick Navigation section header */
+    .stMarkdown h3 {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        padding: 1rem !important;
+        border-radius: 12px !important;
+        text-align: center !important;
+        margin: 1rem 0 !important;
+    }
+    
+    /* Specific styling for sidebar navigation buttons */
+    .css-1d391kg .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 0.75rem 1.5rem !important;
+        font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        margin: 0.25rem 0 !important;
+    }
+    
+    .css-1d391kg .stButton > button:hover {
+        background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+    
     /* Enhanced file uploader */
     .stFileUploader > div {
         border: 2px dashed var(--primary-color);
@@ -370,7 +428,7 @@ def apply_custom_css():
     
     /* Sidebar elements */
     .css-1d391kg .stMarkdown {
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.8);
         border-radius: 8px;
         padding: 0.5rem;
         margin: 0.5rem 0;
@@ -466,64 +524,6 @@ def apply_custom_css():
     
     /* Fix sidebar navigation button text on hover */
     .stButton > button:hover {
-        color: #ffffff !important;
-        font-weight: 700 !important;
-    }
-    
-    /* Style navigation buttons with main heading background */
-    .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        color: #ffffff !important;
-        border: none !important;
-        border-radius: 12px !important;
-        padding: 0.75rem 1.5rem !important;
-        font-weight: 600 !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-        transition: all 0.3s ease !important;
-        width: 100% !important;
-        margin: 0.25rem 0 !important;
-    }
-    
-    .stButton > button:hover {
-        background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
-        color: #ffffff !important;
-        font-weight: 700 !important;
-    }
-    
-    /* Style the Quick Navigation section header */
-    .stMarkdown h3 {
-        color: #ffffff !important;
-        font-weight: 700 !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        padding: 1rem !important;
-        border-radius: 12px !important;
-        text-align: center !important;
-        margin: 1rem 0 !important;
-    }
-    
-    /* Specific styling for sidebar navigation buttons */
-    .css-1d391kg .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        color: #ffffff !important;
-        border: none !important;
-        border-radius: 12px !important;
-        padding: 0.75rem 1.5rem !important;
-        font-weight: 600 !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-        transition: all 0.3s ease !important;
-        width: 100% !important;
-        margin: 0.25rem 0 !important;
-    }
-    
-    .css-1d391kg .stButton > button:hover {
-        background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
         color: #ffffff !important;
         font-weight: 700 !important;
     }
@@ -937,7 +937,7 @@ apply_custom_css()
 # Enhanced Sidebar Navigation
 with st.sidebar:
     st.markdown("""
-    <div style="text-align: center; padding: 1rem; background: var(--gradient-bg); border-radius: 10px; margin-bottom: 2rem;">
+    <div style="text-align: center; padding: 1rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; margin-bottom: 2rem;">
         <h2 style="color: white; margin: 0;">🏥 Pharma Analytics</h2>
         <p style="color: white; margin: 0.5rem 0 0 0; opacity: 0.9;">AI-Powered Sales Forecasting</p>
     </div>
