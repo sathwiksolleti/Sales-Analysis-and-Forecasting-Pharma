@@ -10,6 +10,21 @@ from pathlib import Path
 project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
 
+# Check if required packages are available
+try:
+    import pandas as pd
+    import numpy as np
+    import plotly
+    import sklearn
+    import lightgbm
+    import statsmodels
+    print("✅ All required packages are available")
+except ImportError as e:
+    print(f"❌ Missing required package: {e}")
+    print("This script requires: pandas, numpy, plotly, scikit-learn, lightgbm, statsmodels")
+    print("Please ensure requirements.txt is properly installed")
+    sys.exit(1)
+
 # Now import and run the forecasting
 if __name__ == "__main__":
     try:
