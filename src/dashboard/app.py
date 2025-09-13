@@ -453,6 +453,32 @@ def apply_custom_css():
         color: white !important;
     }
     
+    /* Fix dropdown labels visibility */
+    .stSelectbox label,
+    .stSelectbox .css-1d391kg label,
+    .stSelectbox div[data-testid="stSelectbox"] label {
+        color: #333 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix dropdown options visibility */
+    .stSelectbox div[data-testid="stSelectbox"] div[role="listbox"],
+    .stSelectbox div[data-testid="stSelectbox"] div[role="listbox"] *,
+    .stSelectbox div[data-testid="stSelectbox"] div[role="option"],
+    .stSelectbox div[data-testid="stSelectbox"] div[role="option"] * {
+        color: #333 !important;
+        background-color: white !important;
+    }
+    
+    /* Fix dropdown menu items */
+    .stSelectbox div[data-testid="stSelectbox"] ul,
+    .stSelectbox div[data-testid="stSelectbox"] li,
+    .stSelectbox div[data-testid="stSelectbox"] ul *,
+    .stSelectbox div[data-testid="stSelectbox"] li * {
+        color: #333 !important;
+        background-color: white !important;
+    }
+    
     /* Ensure ALL Streamlit text elements are visible */
     .stMarkdown h1,
     .stMarkdown h2,
