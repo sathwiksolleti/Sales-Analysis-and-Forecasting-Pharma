@@ -1585,16 +1585,20 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         st.subheader("📋 Inventory Recommendations")
         st.dataframe(inventory_df.head(10), width='stretch')
         
-        st.success("""
-            **📋 Inventory Management Guidelines:**
-            - **Reorder Point**: When to place a new order
-            - **EOQ (Economic Order Quantity)**: Optimal order size to minimize costs
-            - **Safety Stock**: Buffer stock to prevent stockouts
-            - **Max Stock**: Maximum inventory level to maintain
-            - **Service Level**: Probability of not running out of stock
-            - **Inventory Turnover**: How many times inventory is sold per year
-            - **Days of Supply**: How long current inventory will last
-            """)
+        st.markdown("""
+        <div style="background: rgba(255, 255, 255, 0.95); padding: 2rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+            <h3 style="color: #1976d2; margin-bottom: 1.5rem; font-size: 1.4rem; font-weight: 700;">📋 Inventory Management Guidelines</h3>
+            <div style="color: #333333; line-height: 1.6;">
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Reorder Point:</strong> When to place a new order</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">EOQ (Economic Order Quantity):</strong> Optimal order size to minimize costs</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Safety Stock:</strong> Buffer stock to prevent stockouts</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Max Stock:</strong> Maximum inventory level to maintain</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Service Level:</strong> Probability of not running out of stock</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Inventory Turnover:</strong> How many times inventory is sold per year</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Days of Supply:</strong> How long current inventory will last</p>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
         
         # Find SKUs with highest/lowest turnover
         high_turnover = inventory_df.nlargest(3, 'inventory_turnover')[['sku_id', 'inventory_turnover', 'days_of_supply']]
@@ -1619,16 +1623,20 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         safety_analysis.columns = ['SKU', 'Weekly Safety Stock', 'Monthly Safety Stock', 'Annual Safety Stock', 'Safety Stock % of Demand']
         st.dataframe(safety_analysis, width='stretch')
         
-        st.success("""
-        **📋 Inventory Management Guidelines:**
-        - **Reorder Point**: When to place a new order
-        - **EOQ (Economic Order Quantity)**: Optimal order size to minimize costs
-        - **Safety Stock**: Buffer stock to prevent stockouts
-        - **Max Stock**: Maximum inventory level to maintain
-        - **Service Level**: Probability of not running out of stock
-        - **Inventory Turnover**: How many times inventory is sold per year
-        - **Days of Supply**: How long current inventory will last
-        """)
+        st.markdown("""
+        <div style="background: rgba(255, 255, 255, 0.95); padding: 2rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+            <h3 style="color: #1976d2; margin-bottom: 1.5rem; font-size: 1.4rem; font-weight: 700;">📋 Inventory Management Guidelines</h3>
+            <div style="color: #333333; line-height: 1.6;">
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Reorder Point:</strong> When to place a new order</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">EOQ (Economic Order Quantity):</strong> Optimal order size to minimize costs</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Safety Stock:</strong> Buffer stock to prevent stockouts</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Max Stock:</strong> Maximum inventory level to maintain</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Service Level:</strong> Probability of not running out of stock</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Inventory Turnover:</strong> How many times inventory is sold per year</p>
+                <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">Days of Supply:</strong> How long current inventory will last</p>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
     
     # Conditional rendering for sales forecasts section
     if st.session_state.current_section == "forecasts" or st.session_state.current_section == "overview":
@@ -2683,4 +2691,3 @@ For questions or support, please contact the analytics team.
         </p>
     </div>
     """, unsafe_allow_html=True)
-    
