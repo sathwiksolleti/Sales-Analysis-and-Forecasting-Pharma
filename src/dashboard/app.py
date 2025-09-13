@@ -2276,31 +2276,36 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
             worst_accuracy = (1 - worst_wmape) * 100
             
             st.markdown(f"""
-            <div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); padding: 2rem; border-radius: 10px; margin: 1rem 0; border-left: 4px solid #3498db;">
-                <h3 style="color: #ecf0f1; margin-bottom: 1.5rem; font-size: 1.4rem;">🎯 Key Performance Insights</h3>
-                <div style="color: #ecf0f1; line-height: 1.6;">
-                    <p><strong>🏆 Ultra-High Performance:</strong> The best model achieves {improvement:.1f}% better accuracy than the worst model</p>
-                    <p><strong>🥇 ETS Ultra-Excellence:</strong> ETS model leads with {best_accuracy:.2f}% accuracy (WMAPE: {best_wmape:.4f}) - ULTRA-HIGH WORLD-CLASS</p>
-                    <p><strong>🥈 SARIMAX Ultra-Superiority:</strong> SARIMAX achieves 99.97% accuracy with ultra-exceptional seasonal pattern recognition</p>
-                    <p><strong>🥉 LightGBM Ultra-Excellence:</strong> LightGBM delivers 99.92% accuracy with ultra-advanced machine learning capabilities</p>
-                    <p><strong>📈 Ultra-Exceptional Standards:</strong> All models demonstrate ultra-high performance with accuracy above 99.9%</p>
-                    <p><strong>🎯 SKU Optimization:</strong> Model selection is performed per SKU to optimize individual product forecasts</p>
-                    <p><strong>🔬 Ultra-Advanced Methodology:</strong> All models use cutting-edge feature engineering and evaluation techniques</p>
-                    <p><strong>📊 Ultra-Consistent Results:</strong> Performance remains consistently ultra-high across different data characteristics and seasonal patterns</p>
-                    <p><strong>🚀 Ultra-Production Ready:</strong> Models are optimized for real-world pharmaceutical forecasting scenarios</p>
-                    <p><strong>🌟 Ultra-Industry Leading:</strong> These accuracy levels far exceed industry benchmarks for pharmaceutical forecasting</p>
-                    <p><strong>🎖️ Benchmark Setting:</strong> These models set new industry standards for pharmaceutical sales forecasting accuracy</p>
+            <div style="background: rgba(255, 255, 255, 0.95); padding: 2rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+                <h3 style="color: #1976d2; margin-bottom: 1.5rem; font-size: 1.4rem; font-weight: 700;">🎯 Key Performance Insights</h3>
+                <div style="color: #333333; line-height: 1.6;">
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">🏆 Ultra-High Performance:</strong> The best model achieves {improvement:.1f}% better accuracy than the worst model</p>
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">🥇 ETS Ultra-Excellence:</strong> ETS model leads with {best_accuracy:.2f}% accuracy (WMAPE: {best_wmape:.4f}) - ULTRA-HIGH WORLD-CLASS</p>
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">🥈 SARIMAX Ultra-Superiority:</strong> SARIMAX achieves 99.97% accuracy with ultra-exceptional seasonal pattern recognition</p>
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">🥉 LightGBM Ultra-Excellence:</strong> LightGBM delivers 99.92% accuracy with ultra-advanced machine learning capabilities</p>
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">📈 Ultra-Exceptional Standards:</strong> All models demonstrate ultra-high performance with accuracy above 99.9%</p>
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">🎯 SKU Optimization:</strong> Model selection is performed per SKU to optimize individual product forecasts</p>
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">🔬 Ultra-Advanced Methodology:</strong> All models use cutting-edge feature engineering and evaluation techniques</p>
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">📊 Ultra-Consistent Results:</strong> Performance remains consistently ultra-high across different data characteristics and seasonal patterns</p>
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">🚀 Ultra-Production Ready:</strong> Models are optimized for real-world pharmaceutical forecasting scenarios</p>
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">🌟 Ultra-Industry Leading:</strong> These accuracy levels far exceed industry benchmarks for pharmaceutical forecasting</p>
+                    <p style="margin-bottom: 0.8rem;"><strong style="color: #1976d2;">🎖️ Benchmark Setting:</strong> These models set new industry standards for pharmaceutical sales forecasting accuracy</p>
                 </div>
             </div>
             """, unsafe_allow_html=True)
             
-            # Additional insights
-            st.subheader("📈 Model Performance Analysis")
+            # Additional insights with better visibility
+            st.markdown("""
+            <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+                <h3 style="color: #1976d2; margin: 0; font-weight: 700;">📈 Model Performance Analysis</h3>
+                <p style="color: #666666; margin: 0.5rem 0 0 0; font-weight: 500;">Detailed analysis and comparison of model performance</p>
+            </div>
+            """, unsafe_allow_html=True)
             
             col1, col2 = st.columns(2)
             
             with col1:
-                st.write("**🎯 Accuracy Distribution:**")
+                st.markdown("<div style='color: #1976d2; font-weight: 700; margin-bottom: 1rem;'>🎯 Accuracy Distribution</div>", unsafe_allow_html=True)
                 accuracy_data = {
                     'Model': df_ranked['model'].tolist(),
                     'Accuracy %': [(1 - wmape) * 100 for wmape in df_ranked['wmape'].tolist()]
@@ -2309,7 +2314,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                 st.dataframe(accuracy_df, width='stretch')
             
             with col2:
-                st.write("**📊 Performance Comparison:**")
+                st.markdown("<div style='color: #1976d2; font-weight: 700; margin-bottom: 1rem;'>📊 Performance Comparison</div>", unsafe_allow_html=True)
                 # Create a simple comparison chart
                 fig_comparison = px.bar(
                     accuracy_df, 
@@ -2678,3 +2683,4 @@ For questions or support, please contact the analytics team.
         </p>
     </div>
     """, unsafe_allow_html=True)
+    
