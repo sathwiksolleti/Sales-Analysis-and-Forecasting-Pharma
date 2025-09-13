@@ -246,9 +246,137 @@ def apply_custom_css():
         color: #333 !important;
     }
     
+    /* Fix download button text visibility */
+    .stButton button,
+    .stButton button *,
+    .stButton > button,
+    .stButton > button *,
+    .stButton button[data-testid="baseButton-secondary"],
+    .stButton button[data-testid="baseButton-secondary"] * {
+        color: #333 !important;
+        background-color: white !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    /* Fix file upload section text */
+    .stFileUploader,
+    .stFileUploader *,
+    .stFileUploader label,
+    .stFileUploader div,
+    .stFileUploader span,
+    .stFileUploader p {
+        color: #333 !important;
+    }
+    
+    /* Fix file upload drag and drop area text */
+    .stFileUploader div[data-testid="stFileUploaderDropzone"],
+    .stFileUploader div[data-testid="stFileUploaderDropzone"] *,
+    .stFileUploader div[data-testid="stFileUploaderDropzone"] p,
+    .stFileUploader div[data-testid="stFileUploaderDropzone"] span,
+    .stFileUploader div[data-testid="stFileUploaderDropzone"] div {
+        color: #333 !important;
+        background-color: #f8f9fa !important;
+    }
+    
+    /* Fix all button text visibility */
+    button,
+    button *,
+    button span,
+    button div,
+    button p {
+        color: #333 !important;
+    }
+    
+    /* Fix Streamlit button specific classes */
+    .css-1d391kg button,
+    .css-1d391kg button *,
+    .css-1d391kg button span,
+    .css-1d391kg button div,
+    .css-1d391kg button p {
+        color: #333 !important;
+    }
+    
+    /* Fix specific download button text from images */
+    button[data-testid="baseButton-secondary"],
+    button[data-testid="baseButton-secondary"] *,
+    button[data-testid="baseButton-secondary"] span,
+    button[data-testid="baseButton-secondary"] div,
+    button[data-testid="baseButton-secondary"] p {
+        color: #333 !important;
+        background-color: white !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    /* Fix file uploader specific text */
+    div[data-testid="stFileUploaderDropzone"],
+    div[data-testid="stFileUploaderDropzone"] p,
+    div[data-testid="stFileUploaderDropzone"] span,
+    div[data-testid="stFileUploaderDropzone"] div {
+        color: #333 !important;
+    }
+    
+    /* Fix browse files button text */
+    div[data-testid="stFileUploaderDropzone"] button,
+    div[data-testid="stFileUploaderDropzone"] button *,
+    div[data-testid="stFileUploaderDropzone"] button span,
+    div[data-testid="stFileUploaderDropzone"] button div,
+    div[data-testid="stFileUploaderDropzone"] button p {
+        color: #333 !important;
+        background-color: white !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    /* Override any remaining low contrast text */
+    *[style*="color: rgba(255,255,255,0.8)"],
+    *[style*="color: rgba(255,255,255,0.7)"],
+    *[style*="color: rgba(255,255,255,0.6)"],
+    *[style*="color: rgba(255,255,255,0.5)"],
+    *[style*="color: rgba(0,0,0,0.3)"],
+    *[style*="color: rgba(0,0,0,0.4)"],
+    *[style*="color: rgba(0,0,0,0.5)"] {
+        color: #333 !important;
+    }
+    
     /* Sidebar text visibility */
     .css-1d391kg {
         color: #333 !important;
+    }
+    
+    /* Final comprehensive text visibility override */
+    .main .block-container *,
+    .stApp *,
+    .stButton *,
+    .stFileUploader *,
+    .stSelectbox *,
+    .stTextInput *,
+    .stMarkdown *,
+    .stAlert *,
+    .stSuccess *,
+    .stWarning *,
+    .stInfo *,
+    .stError *,
+    button *,
+    input *,
+    select *,
+    option *,
+    textarea *,
+    div *,
+    span *,
+    p *,
+    h1 *,
+    h2 *,
+    h3 *,
+    h4 *,
+    h5 *,
+    h6 * {
+        color: #333 !important;
+    }
+    
+    /* Force visibility for any remaining hidden elements */
+    .main .block-container *,
+    .stApp * {
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .css-1d391kg p {
