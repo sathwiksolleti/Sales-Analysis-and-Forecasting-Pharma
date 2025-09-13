@@ -572,6 +572,201 @@ def apply_custom_css():
         font-weight: 500 !important;
     }
     
+    /* Fix metric component visibility */
+    .stMetric {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 10px !important;
+        padding: 1rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    .stMetric > div {
+        color: #333333 !important;
+    }
+    
+    .stMetric label {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .stMetric [data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    .stMetric [data-testid="metric-container"] > div {
+        color: #333333 !important;
+    }
+    
+    .stMetric [data-testid="metric-container"] label {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+    }
+    
+    .stMetric [data-testid="metric-container"] [data-testid="metric-value"] {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 1.5rem !important;
+    }
+    
+    .stMetric [data-testid="metric-container"] [data-testid="metric-delta"] {
+        color: #2e7d32 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix Model Explanations expander visibility */
+    .streamlit-expanderHeader {
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: #333333 !important;
+        font-weight: 700 !important;
+        border-radius: 8px !important;
+        margin-bottom: 0.5rem !important;
+        padding: 1rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    .streamlit-expanderHeader:hover {
+        background: rgba(255, 255, 255, 1) !important;
+        color: #1976d2 !important;
+    }
+    
+    .streamlit-expanderContent {
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: #333333 !important;
+        border-radius: 8px !important;
+        padding: 1rem !important;
+        margin-top: 0.5rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    .streamlit-expanderContent * {
+        color: #333333 !important;
+    }
+    
+    /* Fix subheader visibility */
+    .stSubheader {
+        color: #333333 !important;
+        font-weight: 700 !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        padding: 1rem !important;
+        border-radius: 8px !important;
+        margin: 1rem 0 !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    /* Fix info box visibility */
+    .stInfo {
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%) !important;
+        color: #000000 !important;
+        border-left: 4px solid #2196f3 !important;
+        border-radius: 8px !important;
+        padding: 1.5rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+    
+    .stInfo * {
+        color: #000000 !important;
+        font-weight: 500 !important;
+    }
+    
+    .stInfo strong {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Additional metric visibility fixes */
+    [data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 10px !important;
+        padding: 1rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    [data-testid="metric-container"] label {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 0.9rem !important;
+    }
+    
+    [data-testid="metric-value"] {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 1.5rem !important;
+    }
+    
+    [data-testid="metric-delta"] {
+        color: #2e7d32 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix all metric-related text */
+    .element-container [data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    .element-container [data-testid="metric-container"] * {
+        color: #333333 !important;
+    }
+    
+    .element-container [data-testid="metric-container"] label {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+    }
+    
+    .element-container [data-testid="metric-container"] [data-testid="metric-value"] {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 1.5rem !important;
+    }
+    
+    /* Fix column metric containers */
+    .stColumn .stMetric,
+    .stColumn [data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 10px !important;
+        padding: 1rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    .stColumn .stMetric *,
+    .stColumn [data-testid="metric-container"] * {
+        color: #333333 !important;
+    }
+    
+    .stColumn .stMetric label,
+    .stColumn [data-testid="metric-container"] label {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+    }
+    
+    .stColumn .stMetric [data-testid="metric-value"],
+    .stColumn [data-testid="metric-container"] [data-testid="metric-value"] {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 1.5rem !important;
+    }
+    
+    /* Fix expander text specifically */
+    .streamlit-expanderHeader p,
+    .streamlit-expanderHeader div,
+    .streamlit-expanderHeader span {
+        color: #333333 !important;
+        font-weight: 700 !important;
+    }
+    
+    .streamlit-expanderContent p,
+    .streamlit-expanderContent div,
+    .streamlit-expanderContent span {
+        color: #333333 !important;
+        font-weight: 500 !important;
+    }
+    
     </style>
     """, unsafe_allow_html=True)
 
@@ -1927,8 +2122,13 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                 sku_model_perf = pd.DataFrame(sku_performance)
                 st.dataframe(sku_model_perf, width='stretch')
         
-        # Model explanations
-        st.subheader("📚 Model Explanations")
+        # Model explanations with better visibility
+        st.markdown("""
+        <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+            <h3 style="color: #1976d2; margin: 0; font-weight: 700;">📚 Model Explanations</h3>
+            <p style="color: #666666; margin: 0.5rem 0 0 0; font-weight: 500;">Detailed information about each forecasting model</p>
+        </div>
+        """, unsafe_allow_html=True)
         
         model_explanations = {
             "ETS": {
@@ -2027,8 +2227,13 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                     with col3:
                         st.metric("SMAPE", f"{model_data['smape']:.4f}")
         
-        # Performance insights
-        st.subheader("💡 Performance Insights")
+        # Performance insights with better visibility
+        st.markdown("""
+        <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+            <h3 style="color: #1976d2; margin: 0; font-weight: 700;">💡 Performance Insights</h3>
+            <p style="color: #666666; margin: 0.5rem 0 0 0; font-weight: 500;">Key metrics and analysis of model performance</p>
+        </div>
+        """, unsafe_allow_html=True)
         
         if len(df_ranked) > 1:
             wmape_values = df_ranked['wmape'].values
@@ -2036,13 +2241,35 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
             worst_wmape = max(wmape_values)
             improvement = ((worst_wmape - best_wmape) / worst_wmape) * 100
             
+            # Create styled metrics with better visibility
+            st.markdown("""
+            <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+                <h4 style="color: #1976d2; margin-bottom: 1rem; font-weight: 700;">📊 Performance Summary</h4>
+            </div>
+            """, unsafe_allow_html=True)
+            
             col1, col2, col3 = st.columns(3)
             with col1:
-                st.metric("Best WMAPE", f"{best_wmape:.4f}")
+                st.markdown(f"""
+                <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 10px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+                    <div style="color: #1976d2; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem;">Best WMAPE</div>
+                    <div style="color: #1976d2; font-weight: 700; font-size: 1.5rem;">{best_wmape:.4f}</div>
+                </div>
+                """, unsafe_allow_html=True)
             with col2:
-                st.metric("Worst WMAPE", f"{worst_wmape:.4f}")
+                st.markdown(f"""
+                <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 10px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+                    <div style="color: #1976d2; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem;">Worst WMAPE</div>
+                    <div style="color: #1976d2; font-weight: 700; font-size: 1.5rem;">{worst_wmape:.4f}</div>
+                </div>
+                """, unsafe_allow_html=True)
             with col3:
-                st.metric("Improvement", f"{improvement:.1f}%")
+                st.markdown(f"""
+                <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 10px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+                    <div style="color: #1976d2; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem;">Improvement</div>
+                    <div style="color: #2e7d32; font-weight: 700; font-size: 1.5rem;">{improvement:.1f}%</div>
+                </div>
+                """, unsafe_allow_html=True)
             
             # Calculate accuracy percentages
             best_accuracy = (1 - best_wmape) * 100
