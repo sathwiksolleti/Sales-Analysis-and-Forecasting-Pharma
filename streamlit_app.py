@@ -4,8 +4,16 @@ Streamlit Cloud Entry Point
 This file serves as the main entry point for Streamlit Cloud deployment
 """
 
-# Import and run the main app
-from src.dashboard.app import *
+import sys
+import os
 
+# Add the project root to Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# Import and run the main app
+import streamlit as st
+
+# Redirect to the main app
 if __name__ == "__main__":
-    pass
+    # Import the main app module
+    from src.dashboard import app
