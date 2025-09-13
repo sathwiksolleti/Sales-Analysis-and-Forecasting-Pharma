@@ -246,13 +246,11 @@ def apply_custom_css():
         color: #333 !important;
     }
     
-    /* Fix download button text visibility */
-    .stButton button,
-    .stButton button *,
-    .stButton > button,
-    .stButton > button *,
-    .stButton button[data-testid="baseButton-secondary"],
-    .stButton button[data-testid="baseButton-secondary"] * {
+    /* Fix download button text visibility - but preserve colorful buttons */
+    .stButton button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]),
+    .stButton button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) *,
+    .stButton > button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]),
+    .stButton > button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) * {
         color: #333 !important;
         background-color: white !important;
         border: 1px solid #ddd !important;
@@ -278,12 +276,12 @@ def apply_custom_css():
         background-color: #f8f9fa !important;
     }
     
-    /* Fix all button text visibility */
-    button,
-    button *,
-    button span,
-    button div,
-    button p {
+    /* Fix all button text visibility - but preserve colorful buttons */
+    button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]),
+    button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) *,
+    button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) span,
+    button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) div,
+    button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) p {
         color: #333 !important;
     }
     
@@ -631,6 +629,86 @@ def apply_custom_css():
         transform: translateY(-2px);
         box-shadow: var(--hover-shadow);
         background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
+    }
+    
+    /* Special styling for Generate Forecast button */
+    .stButton > button[data-testid="baseButton-primary"] {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .stButton > button[data-testid="baseButton-primary"]:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+    
+    /* Navigation buttons styling */
+    .stButton > button[data-testid="baseButton-secondary"] {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+        margin-bottom: 0.5rem;
+    }
+    
+    .stButton > button[data-testid="baseButton-secondary"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+    
+    /* Specific styling for Generate Sales & Forecast button */
+    .stButton > button:contains("Generate Sales & Forecast") {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    /* Specific styling for navigation buttons by content */
+    .stButton > button:contains("Dashboard Overview"),
+    .stButton > button:contains("Sales Forecasts"),
+    .stButton > button:contains("Inventory Planning"),
+    .stButton > button:contains("Model Performance"),
+    .stButton > button:contains("Data Upload"),
+    .stButton > button:contains("Download Reports") {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+        margin-bottom: 0.5rem;
+    }
+    
+    .stButton > button:contains("Dashboard Overview"):hover,
+    .stButton > button:contains("Sales Forecasts"):hover,
+    .stButton > button:contains("Inventory Planning"):hover,
+    .stButton > button:contains("Model Performance"):hover,
+    .stButton > button:contains("Data Upload"):hover,
+    .stButton > button:contains("Download Reports"):hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     }
     
     /* Enhanced file uploader */
