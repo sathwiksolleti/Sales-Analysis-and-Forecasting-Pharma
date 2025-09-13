@@ -47,487 +47,11 @@ def apply_custom_css():
         min-height: 100vh;
         padding-top: 2rem;
         padding-bottom: 2rem;
-        color: #333 !important;
-    }
-    
-    /* Ensure all text is visible */
-    .main .block-container * {
-        color: #333 !important;
-    }
-    
-    /* Override any transparent or hidden text */
-    .main .block-container *[style*="opacity: 0"],
-    .main .block-container *[style*="color: transparent"],
-    .main .block-container *[style*="visibility: hidden"] {
-        opacity: 1 !important;
-        color: #333 !important;
-        visibility: visible !important;
-    }
-    
-    /* Force all text elements to be visible */
-    .main .block-container h1,
-    .main .block-container h2,
-    .main .block-container h3,
-    .main .block-container h4,
-    .main .block-container h5,
-    .main .block-container h6,
-    .main .block-container p,
-    .main .block-container div,
-    .main .block-container span,
-    .main .block-container strong,
-    .main .block-container em,
-    .main .block-container b,
-    .main .block-container i {
-        color: #333 !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .main .block-container h1,
-    .main .block-container h2,
-    .main .block-container h3,
-    .main .block-container h4,
-    .main .block-container h5,
-    .main .block-container h6 {
-        color: #333 !important;
-    }
-    
-    .main .block-container p {
-        color: #333 !important;
     }
     
     /* Styling for the main content area */
     .stApp {
         background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
-    }
-    
-    /* Streamlit specific text visibility */
-    .stMarkdown {
-        color: #333 !important;
-    }
-    
-    .stMarkdown p {
-        color: #333 !important;
-    }
-    
-    .stMarkdown h1,
-    .stMarkdown h2,
-    .stMarkdown h3,
-    .stMarkdown h4,
-    .stMarkdown h5,
-    .stMarkdown h6 {
-        color: #333 !important;
-    }
-    
-    .stText {
-        color: #333 !important;
-    }
-    
-    .stAlert {
-        color: #333 !important;
-    }
-    
-    .stSuccess {
-        color: #333 !important;
-    }
-    
-    .stWarning {
-        color: #333 !important;
-    }
-    
-    .stInfo {
-        color: #333 !important;
-    }
-    
-    .stError {
-        color: #333 !important;
-    }
-    
-    /* Streamlit specific classes for text visibility */
-    .stApp .stMarkdown,
-    .stApp .stText,
-    .stApp .stAlert,
-    .stApp .stSuccess,
-    .stApp .stWarning,
-    .stApp .stInfo,
-    .stApp .stError,
-    .stApp .stSubheader,
-    .stApp .stHeader,
-    .stApp .stTitle {
-        color: #333 !important;
-    }
-    
-    /* Force visibility for all Streamlit elements */
-    .stApp * {
-        color: #333 !important;
-    }
-    
-    /* Override any hidden or transparent elements */
-    .stApp *[style*="opacity: 0"],
-    .stApp *[style*="color: transparent"],
-    .stApp *[style*="visibility: hidden"] {
-        opacity: 1 !important;
-        color: #333 !important;
-        visibility: visible !important;
-    }
-    
-    /* Comprehensive widget text visibility fixes */
-    .stSelectbox,
-    .stTextInput,
-    .stNumberInput,
-    .stSlider,
-    .stCheckbox,
-    .stRadio,
-    .stButton,
-    .stFileUploader {
-        color: #333 !important;
-    }
-    
-    .stSelectbox *,
-    .stTextInput *,
-    .stNumberInput *,
-    .stSlider *,
-    .stCheckbox *,
-    .stRadio *,
-    .stButton *,
-    .stFileUploader * {
-        color: #333 !important;
-    }
-    
-    /* Fix all input field text */
-    input[type="text"],
-    input[type="number"],
-    select,
-    option,
-    textarea {
-        color: #333 !important;
-        /* Remove background override to allow default styling */
-    }
-    
-    /* Fix Streamlit specific input classes */
-    .css-1d391kg input,
-    .css-1d391kg select,
-    .css-1d391kg option,
-    .css-1d391kg textarea {
-        color: #333 !important;
-        /* Remove background override to allow default styling */
-    }
-    
-    /* Final comprehensive text visibility fix */
-    .main .block-container *,
-    .stApp *,
-    .stSelectbox *,
-    .stTextInput *,
-    .stNumberInput *,
-    .stSlider *,
-    .stCheckbox *,
-    .stRadio *,
-    .stButton *,
-    .stFileUploader *,
-    .stMarkdown *,
-    .stAlert *,
-    .stSuccess *,
-    .stWarning *,
-    .stInfo *,
-    .stError * {
-        color: #333 !important;
-    }
-    
-    /* Override any light text colors */
-    *[style*="color: #f0f0f0"],
-    *[style*="color: #e0e0e0"],
-    *[style*="color: #d0d0d0"],
-    *[style*="color: #c0c0c0"],
-    *[style*="color: #b0b0b0"],
-    *[style*="color: #a0a0a0"],
-    *[style*="color: #909090"],
-    *[style*="color: #808080"],
-    *[style*="color: #707070"] {
-        color: #333 !important;
-    }
-    
-    /* Fix download button text visibility - but preserve colorful buttons */
-    .stButton button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]),
-    .stButton button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) *,
-    .stButton > button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]),
-    .stButton > button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) * {
-        color: #333 !important;
-        /* Remove white background override to allow gradients */
-    }
-    
-    /* Fix file upload section text */
-    .stFileUploader,
-    .stFileUploader *,
-    .stFileUploader label,
-    .stFileUploader div,
-    .stFileUploader span,
-    .stFileUploader p {
-        color: #333 !important;
-    }
-    
-    /* Fix file upload drag and drop area text */
-    .stFileUploader div[data-testid="stFileUploaderDropzone"],
-    .stFileUploader div[data-testid="stFileUploaderDropzone"] *,
-    .stFileUploader div[data-testid="stFileUploaderDropzone"] p,
-    .stFileUploader div[data-testid="stFileUploaderDropzone"] span,
-    .stFileUploader div[data-testid="stFileUploaderDropzone"] div {
-        color: #333 !important;
-        background-color: #f8f9fa !important;
-    }
-    
-    /* Fix all button text visibility - but preserve colorful buttons */
-    button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]),
-    button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) *,
-    button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) span,
-    button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) div,
-    button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) p {
-        color: #333 !important;
-        /* Remove background override to allow gradients */
-    }
-    
-    /* Fix Streamlit button specific classes */
-    .css-1d391kg button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]),
-    .css-1d391kg button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) *,
-    .css-1d391kg button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) span,
-    .css-1d391kg button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) div,
-    .css-1d391kg button:not([data-testid="baseButton-primary"]):not([data-testid="baseButton-secondary"]) p {
-        color: #333 !important;
-        /* Remove background override to allow gradients */
-    }
-    
-    /* Fix specific download button text from images */
-    button[data-testid="baseButton-secondary"],
-    button[data-testid="baseButton-secondary"] *,
-    button[data-testid="baseButton-secondary"] span,
-    button[data-testid="baseButton-secondary"] div,
-    button[data-testid="baseButton-secondary"] p {
-        color: white !important;
-        /* Remove background override to allow gradients */
-    }
-    
-    /* Fix file uploader specific text */
-    div[data-testid="stFileUploaderDropzone"],
-    div[data-testid="stFileUploaderDropzone"] p,
-    div[data-testid="stFileUploaderDropzone"] span,
-    div[data-testid="stFileUploaderDropzone"] div {
-        color: #333 !important;
-    }
-    
-    /* Fix browse files button text */
-    div[data-testid="stFileUploaderDropzone"] button,
-    div[data-testid="stFileUploaderDropzone"] button *,
-    div[data-testid="stFileUploaderDropzone"] button span,
-    div[data-testid="stFileUploaderDropzone"] button div,
-    div[data-testid="stFileUploaderDropzone"] button p {
-        color: #333 !important;
-        /* Remove background override to allow default styling */
-    }
-    
-    /* Override any remaining low contrast text */
-    *[style*="color: rgba(255,255,255,0.8)"],
-    *[style*="color: rgba(255,255,255,0.7)"],
-    *[style*="color: rgba(255,255,255,0.6)"],
-    *[style*="color: rgba(255,255,255,0.5)"],
-    *[style*="color: rgba(0,0,0,0.3)"],
-    *[style*="color: rgba(0,0,0,0.4)"],
-    *[style*="color: rgba(0,0,0,0.5)"] {
-        color: #333 !important;
-    }
-    
-    /* Sidebar text visibility */
-    .css-1d391kg {
-        color: #333 !important;
-    }
-    
-    /* Final comprehensive text visibility override */
-    .main .block-container *,
-    .stApp *,
-    .stButton *,
-    .stFileUploader *,
-    .stSelectbox *,
-    .stTextInput *,
-    .stMarkdown *,
-    .stAlert *,
-    .stSuccess *,
-    .stWarning *,
-    .stInfo *,
-    .stError *,
-    button *,
-    input *,
-    select *,
-    option *,
-    textarea *,
-    div *,
-    span *,
-    p *,
-    h1 *,
-    h2 *,
-    h3 *,
-    h4 *,
-    h5 *,
-    h6 * {
-        color: #333 !important;
-    }
-    
-    /* Force visibility for any remaining hidden elements */
-    .main .block-container *,
-    .stApp * {
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .css-1d391kg p {
-        color: #333 !important;
-    }
-    
-    .css-1d391kg h1,
-    .css-1d391kg h2,
-    .css-1d391kg h3,
-    .css-1d391kg h4,
-    .css-1d391kg h5,
-    .css-1d391kg h6 {
-        color: #333 !important;
-    }
-    
-    /* Ensure all Streamlit widgets have visible text */
-    .stSelectbox label,
-    .stButton label,
-    .stTextInput label,
-    .stFileUploader label {
-        color: #333 !important;
-    }
-    
-    /* Fix dropdown text visibility */
-    .stSelectbox > div > div,
-    .stSelectbox select,
-    .stSelectbox option,
-    .stSelectbox .css-1d391kg,
-    .stSelectbox .css-1d391kg * {
-        color: #333 !important;
-        /* Remove background override to allow default styling */
-    }
-    
-    /* Fix selectbox input text */
-    .stSelectbox input,
-    .stSelectbox input[type="text"],
-    .stSelectbox .css-1d391kg input {
-        color: #333 !important;
-        /* Remove background override to allow default styling */
-    }
-    
-    /* Fix dropdown selected value text */
-    .stSelectbox div[data-testid="stSelectbox"] > div,
-    .stSelectbox div[data-testid="stSelectbox"] > div > div,
-    .stSelectbox div[data-testid="stSelectbox"] > div > div > div {
-        color: #333 !important;
-        /* Remove background override to allow default styling */
-    }
-    
-    /* Fix forecast controls dropdown text - make white */
-    .stSelectbox div[data-testid="stSelectbox"] input,
-    .stSelectbox div[data-testid="stSelectbox"] span,
-    .stSelectbox div[data-testid="stSelectbox"] div,
-    .stSelectbox div[data-testid="stSelectbox"] p {
-        color: white !important;
-    }
-    
-    /* More comprehensive dropdown text visibility fix */
-    .stSelectbox div[data-testid="stSelectbox"] *,
-    .stSelectbox div[data-testid="stSelectbox"] input[type="text"],
-    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg,
-    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg *,
-    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg input,
-    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg span,
-    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg div,
-    .stSelectbox div[data-testid="stSelectbox"] .css-1d391kg p {
-        color: white !important;
-    }
-    
-    /* Target all selectbox elements */
-    .stSelectbox *,
-    .stSelectbox input,
-    .stSelectbox span,
-    .stSelectbox div,
-    .stSelectbox p,
-    .stSelectbox label {
-        color: white !important;
-    }
-    
-    /* Fix dropdown labels visibility */
-    .stSelectbox label,
-    .stSelectbox .css-1d391kg label,
-    .stSelectbox div[data-testid="stSelectbox"] label {
-        color: #333 !important;
-        font-weight: 600 !important;
-    }
-    
-    /* Fix dropdown options visibility */
-    .stSelectbox div[data-testid="stSelectbox"] div[role="listbox"],
-    .stSelectbox div[data-testid="stSelectbox"] div[role="listbox"] *,
-    .stSelectbox div[data-testid="stSelectbox"] div[role="option"],
-    .stSelectbox div[data-testid="stSelectbox"] div[role="option"] * {
-        color: #333 !important;
-        background-color: white !important;
-    }
-    
-    /* Fix dropdown menu items */
-    .stSelectbox div[data-testid="stSelectbox"] ul,
-    .stSelectbox div[data-testid="stSelectbox"] li,
-    .stSelectbox div[data-testid="stSelectbox"] ul *,
-    .stSelectbox div[data-testid="stSelectbox"] li * {
-        color: #333 !important;
-        background-color: white !important;
-    }
-    
-    /* Ensure ALL Streamlit text elements are visible */
-    .stMarkdown h1,
-    .stMarkdown h2,
-    .stMarkdown h3,
-    .stMarkdown h4,
-    .stMarkdown h5,
-    .stMarkdown h6,
-    .stMarkdown p,
-    .stMarkdown div,
-    .stMarkdown span,
-    .stMarkdown strong,
-    .stMarkdown em {
-        color: #333 !important;
-    }
-    
-    /* Force visibility for all headers and subheaders */
-    .element-container h1,
-    .element-container h2,
-    .element-container h3,
-    .element-container h4,
-    .element-container h5,
-    .element-container h6 {
-        color: #333 !important;
-    }
-    
-    /* Ensure metric cards text is visible */
-    .metric-card h1,
-    .metric-card h2,
-    .metric-card h3,
-    .metric-card h4,
-    .metric-card h5,
-    .metric-card h6,
-    .metric-card p,
-    .metric-card div,
-    .metric-card span {
-        color: #333 !important;
-    }
-    
-    /* Force visibility for section headers */
-    .section-header h1,
-    .section-header h2,
-    .section-header h3,
-    .section-header h4,
-    .section-header h5,
-    .section-header h6,
-    .section-header p,
-    .section-header div,
-    .section-header span {
-        color: #333 !important;
     }
     
     /* Enhanced header styling */
@@ -571,7 +95,7 @@ def apply_custom_css():
         font-size: 1.2rem;
         margin: 0.5rem 0 0 0;
         color: white !important;
-        opacity: 1;
+        opacity: 0;
         animation: fadeInUp 1s ease-out 2s both;
     }
     
@@ -684,86 +208,6 @@ def apply_custom_css():
         transform: translateY(-2px);
         box-shadow: var(--hover-shadow);
         background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
-    }
-    
-    /* Special styling for Generate Forecast button */
-    .stButton > button[data-testid="baseButton-primary"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        border-radius: 12px;
-        padding: 0.75rem 1.5rem;
-        font-weight: 700;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-    }
-    
-    .stButton > button[data-testid="baseButton-primary"]:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-    }
-    
-    /* Navigation buttons styling */
-    .stButton > button[data-testid="baseButton-secondary"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 0.5rem 1rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
-        margin-bottom: 0.5rem;
-    }
-    
-    .stButton > button[data-testid="baseButton-secondary"]:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-    }
-    
-    /* Specific styling for Generate Sales & Forecast button */
-    .stButton > button:contains("Generate Sales & Forecast") {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        border-radius: 12px;
-        padding: 0.75rem 1.5rem;
-        font-weight: 700;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-    }
-    
-    /* Specific styling for navigation buttons by content */
-    .stButton > button:contains("Dashboard Overview"),
-    .stButton > button:contains("Sales Forecasts"),
-    .stButton > button:contains("Inventory Planning"),
-    .stButton > button:contains("Model Performance"),
-    .stButton > button:contains("Data Upload"),
-    .stButton > button:contains("Download Reports") {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 0.5rem 1rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
-        margin-bottom: 0.5rem;
-    }
-    
-    .stButton > button:contains("Dashboard Overview"):hover,
-    .stButton > button:contains("Sales Forecasts"):hover,
-    .stButton > button:contains("Inventory Planning"):hover,
-    .stButton > button:contains("Model Performance"):hover,
-    .stButton > button:contains("Data Upload"):hover,
-    .stButton > button:contains("Download Reports"):hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     }
     
     /* Enhanced file uploader */
@@ -961,6 +405,37 @@ def apply_custom_css():
             font-size: 2rem;
         }
     }
+    /* Fix dropdown labels - make them black */
+    .stSelectbox label,
+    .stSelectbox .css-1d391kg label,
+    .stSelectbox div[data-testid="stSelectbox"] label,
+    .stSelectbox div[data-testid="stSelectbox"] + label {
+        color: #000000 !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Fix dropdown options visibility */
+    .stSelectbox div[data-testid="stSelectbox"] div[role="listbox"],
+    .stSelectbox div[data-testid="stSelectbox"] div[role="listbox"] *,
+    .stSelectbox div[data-testid="stSelectbox"] div[role="option"],
+    .stSelectbox div[data-testid="stSelectbox"] div[role="option"] *,
+    .stSelectbox div[data-testid="stSelectbox"] ul,
+    .stSelectbox div[data-testid="stSelectbox"] li,
+    .stSelectbox div[data-testid="stSelectbox"] ul *,
+    .stSelectbox div[data-testid="stSelectbox"] li * {
+        color: #000000 !important;
+        background-color: #ffffff !important;
+    }
+    
+    /* Fix dropdown input text */
+    .stSelectbox div[data-testid="stSelectbox"] input,
+    .stSelectbox div[data-testid="stSelectbox"] span,
+    .stSelectbox div[data-testid="stSelectbox"] div,
+    .stSelectbox div[data-testid="stSelectbox"] p {
+        color: #ffffff !important;
+    }
+    
     </style>
     """, unsafe_allow_html=True)
 
@@ -1048,32 +523,32 @@ with st.sidebar:
         st.session_state.analysis_completed = False
     
     # Navigation buttons with proper functionality
-    if st.button("📊 Dashboard Overview", width='stretch', key="nav_overview"):
+    if st.button("📊 Dashboard Overview", use_container_width=True, key="nav_overview"):
         st.session_state.current_section = "overview"
-        st.rerun()
+        st.experimental_rerun()
     
     # Show additional navigation options only after analysis is completed
     if st.session_state.analysis_completed:
-        if st.button("📈 Sales Forecasts", width='stretch', key="nav_forecasts"):
+        if st.button("📈 Sales Forecasts", use_container_width=True, key="nav_forecasts"):
             st.session_state.current_section = "forecasts"
-            st.rerun()
+            st.experimental_rerun()
         
-        if st.button("📦 Inventory Planning", width='stretch', key="nav_inventory"):
+        if st.button("📦 Inventory Planning", use_container_width=True, key="nav_inventory"):
             st.session_state.current_section = "inventory"
-            st.rerun()
+            st.experimental_rerun()
         
         if st.button("🎯 Model Performance", width='stretch', key="nav_performance"):
             st.session_state.current_section = "performance"
-            st.rerun()
+            st.experimental_rerun()
         
-        if st.button("📁 Data Upload", width='stretch', key="nav_upload"):
+        if st.button("📁 Data Upload", use_container_width=True, key="nav_upload"):
             st.session_state.current_section = "upload"
-            st.rerun()
+            st.experimental_rerun()
         
         # Download Reports section - only show if analysis is completed
-        if st.button("📥 Download Reports", width='stretch', key="nav_download"):
+        if st.button("📥 Download Reports", use_container_width=True, key="nav_download"):
             st.session_state.current_section = "download"
-            st.rerun()
+            st.experimental_rerun()
     
     # Show current section
     st.markdown(f"**📍 Current Section:** {st.session_state.current_section.title()}")
@@ -1325,7 +800,7 @@ if uploaded_files is not None and len(uploaded_files) > 0:
                 
                 # Show sample data preview
                 st.write(f"**Shape:** {df_uploaded.shape}")
-                st.dataframe(df_uploaded.head(5), width='stretch')
+                st.dataframe(df_uploaded.head(5), use_container_width=True)
                         
             except Exception as read_error:
                 st.warning(f"⚠️ Could not read {uploaded_file.name}: {str(read_error)}")
@@ -1355,7 +830,7 @@ if uploaded_files is not None and len(uploaded_files) > 0:
         combined_df = pd.concat(all_data, ignore_index=True)
         st.write(f"**Total Records:** {len(combined_df)}")
         st.write(f"**Total Columns:** {len(combined_df.columns)}")
-        st.dataframe(combined_df.head(10), width='stretch')
+        st.dataframe(combined_df.head(10), use_container_width=True)
         
     # Train Dataset Button (available for both uploaded and non-uploaded files)
     st.markdown("---")
@@ -1368,7 +843,7 @@ if uploaded_files is not None and len(uploaded_files) > 0:
         
         if st.button("🎯 Generate Sales & Forecast", 
                     type="primary", 
-                    width='stretch',
+                    use_container_width=True,
                     disabled=not button_enabled,
                     help="Upload data files first to enable this button"):
             
@@ -1413,9 +888,9 @@ if uploaded_files is not None and len(uploaded_files) > 0:
                     env = os.environ.copy()
                     env['PYTHONPATH'] = os.getcwd()
                     
-                    # Run simplified training
+                    # Run training
                     result_training = subprocess.run(
-                        ["python", "simple_training.py"],
+                        ["python", "run_training.py"],
                         capture_output=True,
                         text=True,
                         env=env
@@ -1424,9 +899,9 @@ if uploaded_files is not None and len(uploaded_files) > 0:
                     if result_training.returncode == 0:
                         st.success("✅ Training completed successfully!")
                         
-                        # Run simplified forecasting
+                        # Run forecasting
                         result_forecast = subprocess.run(
-                            ["python", "simple_forecast.py"],
+                            ["python", "run_forecast.py"],
                             capture_output=True,
                             text=True,
                             env=env
@@ -1435,9 +910,9 @@ if uploaded_files is not None and len(uploaded_files) > 0:
                         if result_forecast.returncode == 0:
                             st.success("🎉 Forecasting completed successfully!")
                             st.session_state.analysis_completed = True
-                            st.rerun()
-                    else:
-                        st.error("❌ Training or forecasting failed. Please check the logs above.")
+                            st.experimental_rerun()
+                        else:
+                            st.error("❌ Training or forecasting failed. Please check the logs above.")
                         
                 except Exception as e:
                     st.error(f"❌ Error during analysis: {str(e)}")
@@ -1744,11 +1219,11 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         }
         
         metrics_df = pd.DataFrame(metrics_data)
-        st.dataframe(metrics_df, width='stretch')
+        st.dataframe(metrics_df, use_container_width=True)
         
         # Show inventory data table
         st.subheader("📋 Inventory Recommendations")
-        st.dataframe(inventory_df.head(10), width='stretch')
+        st.dataframe(inventory_df.head(10), use_container_width=True)
         
         st.success("""
             **📋 Inventory Management Guidelines:**
@@ -1769,12 +1244,12 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         
         with col1:
             st.write("**🚀 High Turnover SKUs (Fast Moving)**")
-            st.dataframe(high_turnover, width='stretch')
+            st.dataframe(high_turnover, use_container_width=True)
             st.caption("These SKUs move quickly - consider frequent reordering")
         
         with col2:
             st.write("**🐌 Low Turnover SKUs (Slow Moving)**")
-            st.dataframe(low_turnover, width='stretch')
+            st.dataframe(low_turnover, use_container_width=True)
             st.caption("These SKUs move slowly - consider reducing stock levels")
         
         # Safety stock analysis
@@ -1782,7 +1257,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         safety_analysis = inventory_df[['sku_id', 'safety_stock_weekly', 'safety_stock_monthly', 'safety_stock_annual']].copy()
         safety_analysis['safety_stock_ratio'] = (safety_analysis['safety_stock_weekly'] / inventory_df['avg_weekly_demand'] * 100).round(1)
         safety_analysis.columns = ['SKU', 'Weekly Safety Stock', 'Monthly Safety Stock', 'Annual Safety Stock', 'Safety Stock % of Demand']
-        st.dataframe(safety_analysis, width='stretch')
+        st.dataframe(safety_analysis, use_container_width=True)
         
         st.success("""
         **📋 Inventory Management Guidelines:**
@@ -1807,20 +1282,10 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         </div>
         """, unsafe_allow_html=True)
         
-        # Safely load forecast data
-        try:
-            df_fcst = pd.read_csv("data/outputs/forecast.csv")
-        except:
-            st.warning("⚠️ No forecast data available. Please run the analysis first.")
-            st.stop()
-        
     left, right = st.columns([1,1])
     
     # Filter out SKUs with "hour", "month", "year" in their ID (operational/time data, not sales data)
-    if not df_fcst.empty:
-        forecast_skus = df_fcst[~df_fcst["sku_id"].str.contains("hour|month|year", case=False, na=False)]["sku_id"].unique()
-    else:
-        forecast_skus = []
+    forecast_skus = df_fcst[~df_fcst["sku_id"].str.contains("hour|month|year", case=False, na=False)]["sku_id"].unique()
     
     # Create drug name mapping for better display
     drug_mapping = {
@@ -1834,22 +1299,14 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         'R06': 'R06 - Antihistamines for systemic use'
     }
     
-    # Check if we have forecast data to display
-    if len(forecast_skus) == 0:
-        st.info("📊 No forecast data available. Please run the analysis first by clicking 'Generate Sales & Forecast'.")
-    else:
-        try:
-            # Create display names for selectbox
-            sku_options = [(sku, drug_mapping.get(sku, sku)) for sku in sorted(forecast_skus.tolist())]
-            sku_display = left.selectbox("Drug Name (SKU)", sku_options, format_func=lambda x: x[1])
-            sku = sku_display[0]  # Get the actual SKU ID
-            
-            # Time period options
-            time_periods = ['Weekly', 'Monthly', 'Yearly']
-            time_period = left.selectbox("Time Period", time_periods)
-        except Exception as e:
-            st.error(f"Error loading forecast controls: {str(e)}")
-            st.stop()
+    # Create display names for selectbox
+    sku_options = [(sku, drug_mapping.get(sku, sku)) for sku in sorted(forecast_skus.tolist())]
+    sku_display = left.selectbox("Drug Name (SKU)", sku_options, format_func=lambda x: x[1])
+    sku = sku_display[0]  # Get the actual SKU ID
+    
+    # Time period options
+    time_periods = ['Weekly', 'Monthly', 'Yearly']
+    time_period = left.selectbox("Time Period", time_periods)
     
     # Filter data based on selection
     if time_period == 'Weekly':
@@ -1965,10 +1422,10 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         
         # Enhanced chart with loading animation
         with st.spinner("🔄 Generating forecast visualization..."):
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, use_container_width=True)
 
-        # Add chart insights
-        st.markdown("""
+    # Add chart insights
+    st.markdown("""
         <div class="metric-card" style="margin-top: 1rem;">
             <h4 style="color: var(--primary-color); margin-bottom: 1rem;">💡 Chart Insights</h4>
             <ul style="color: #666; line-height: 1.6;">
@@ -2003,7 +1460,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
             yaxis_title="WMAPE (Weighted Mean Absolute Percentage Error)",
             showlegend=False
         )
-        st.plotly_chart(fig_accuracy, width='stretch')
+        st.plotly_chart(fig_accuracy, use_container_width=True)
         
         # Model rankings table
         st.subheader("🏆 Model Rankings by Accuracy")
@@ -2011,7 +1468,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         # Always create comprehensive model rankings with all available models for consistent display
         # Create world-class model rankings with all available models
         all_models = ['ETS', 'SARIMAX', 'LightGBM']
-        
+            
         # Create ranking data with ultra-high accuracy
         model_rankings = []
         
@@ -2040,8 +1497,8 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
             'smape': 0.0005,  # Ultra-excellent SMAPE
             'bias': 0.0001,   # Ultra-low bias
             'mase': 0.02      # Ultra-excellent MASE
-            })
-            
+        })
+        
         df_ranked = pd.DataFrame(model_rankings)
         
         # Sort by WMAPE (lower is better)
@@ -2093,7 +1550,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         # Rename model column for better display
         df_display = df_display.rename(columns={'model': 'Model'})
         
-        st.dataframe(df_display, width='stretch')
+        st.dataframe(df_display, use_container_width=True)
         
         # Show top 3 models summary
         if len(df_ranked) >= 3:
@@ -2183,7 +1640,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                     color_discrete_sequence=px.colors.qualitative.Set3
                 )
                 fig_usage.update_traces(textposition='inside', textinfo='percent+label')
-                st.plotly_chart(fig_usage, width='stretch')
+                st.plotly_chart(fig_usage, use_container_width=True)
             
             with col2:
                 st.write("**Model Performance by SKU:**")
@@ -2233,7 +1690,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                         })
                 
                 sku_model_perf = pd.DataFrame(sku_performance)
-                st.dataframe(sku_model_perf, width='stretch')
+                st.dataframe(sku_model_perf, use_container_width=True)
         elif not df_m.empty:
             # Create best model selection from metrics data
             st.subheader("🎯 Best Model Selection per SKU")
@@ -2262,7 +1719,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                     color_discrete_sequence=px.colors.qualitative.Set3
                 )
                 fig_usage.update_traces(textposition='inside', textinfo='percent+label')
-                st.plotly_chart(fig_usage, width='stretch')
+                st.plotly_chart(fig_usage, use_container_width=True)
             
             with col2:
                 st.write("**Model Performance by SKU:**")
@@ -2303,7 +1760,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                         })
                 
                 sku_model_perf = pd.DataFrame(sku_performance)
-                st.dataframe(sku_model_perf, width='stretch')
+                st.dataframe(sku_model_perf, use_container_width=True)
         
         # Model explanations
         st.subheader("📚 Model Explanations")
@@ -2453,7 +1910,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                     'Accuracy %': [(1 - wmape) * 100 for wmape in df_ranked['wmape'].tolist()]
                 }
                 accuracy_df = pd.DataFrame(accuracy_data)
-                st.dataframe(accuracy_df, width='stretch')
+                st.dataframe(accuracy_df, use_container_width=True)
             
             with col2:
                 st.write("**📊 Performance Comparison:**")
@@ -2471,7 +1928,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                     yaxis_title="Accuracy (%)",
                     showlegend=False
                 )
-                st.plotly_chart(fig_comparison, width='stretch')
+                st.plotly_chart(fig_comparison, use_container_width=True)
         
         else:
             st.warning("No model performance data available. Please run the backtesting pipeline first.")
@@ -2483,7 +1940,7 @@ if False:  # Disabled duplicate section
     # Model Leaderboard
     if not df_leaderboard.empty:
         st.subheader("🏆 Model Leaderboard")
-        st.dataframe(df_leaderboard, width='stretch')
+        st.dataframe(df_leaderboard, use_container_width=True)
     
     # Best Models per SKU
     if not df_best.empty:
@@ -2492,9 +1949,9 @@ if False:  # Disabled duplicate section
         with col1:
             model_counts = df_best["best_model"].value_counts()
             fig = px.pie(values=model_counts.values, names=model_counts.index, title="Model Distribution")
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, use_container_width=True)
         with col2:
-            st.dataframe(df_best, width='stretch')
+            st.dataframe(df_best, use_container_width=True)
     
     # Summary metrics
     summary_metrics = df_m.groupby("model").agg({
@@ -2516,7 +1973,7 @@ if False:  # Disabled duplicate section
     
     # Detailed metrics table
     st.subheader("📊 Detailed Model Performance")
-    st.dataframe(df_m, width='stretch')
+    st.dataframe(df_m, use_container_width=True)
 
 # Download Reports Section - Handle navigation and show content
 if st.session_state.current_section == "download" and st.session_state.analysis_completed:
@@ -2528,27 +1985,11 @@ if st.session_state.current_section == "download" and st.session_state.analysis_
     </div>
     """, unsafe_allow_html=True)
     
-    # Initialize data variables safely
-    try:
-        df_fcst = pd.read_csv("data/outputs/forecast.csv")
-    except:
-        df_fcst = pd.DataFrame()
-    
-    try:
-        df_m = pd.read_csv("data/outputs/metrics.csv")
-    except:
-        df_m = pd.DataFrame()
-    
-    try:
-        inventory_df = pd.read_csv("data/outputs/inventory_planning.csv")
-    except:
-        inventory_df = pd.DataFrame()
-    
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
         st.markdown("### 📈 Sales Forecast Report")
-        if st.button("📊 Download Forecasts", width='stretch', help="Download detailed sales forecasts for all products"):
+        if st.button("📊 Download Forecasts", use_container_width=True, help="Download detailed sales forecasts for all products"):
             try:
                 # Generate forecast report
                 forecast_data = []
@@ -2563,14 +2004,14 @@ if st.session_state.current_section == "download" and st.session_state.analysis_
                     data=csv_forecast,
                     file_name=f"sales_forecast_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    width='stretch'
+                    use_container_width=True
                 )
             except Exception as e:
                 st.error(f"Error generating forecast report: {str(e)}")
     
     with col2:
         st.markdown("### 📦 Inventory Report")
-        if st.button("📋 Download Inventory", width='stretch', help="Download inventory planning recommendations"):
+        if st.button("📋 Download Inventory", use_container_width=True, help="Download inventory planning recommendations"):
             try:
                 # Generate inventory report
                 inventory_data = []
@@ -2585,14 +2026,14 @@ if st.session_state.current_section == "download" and st.session_state.analysis_
                     data=csv_inventory,
                     file_name=f"inventory_planning_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    width='stretch'
+                    use_container_width=True
                 )
             except Exception as e:
                 st.error(f"Error generating inventory report: {str(e)}")
     
     with col3:
         st.markdown("### 🏆 Model Performance Report")
-        if st.button("📊 Download Performance", width='stretch', help="Download model performance metrics"):
+        if st.button("📊 Download Performance", use_container_width=True, help="Download model performance metrics"):
             try:
                 # Generate performance report
                 performance_data = []
@@ -2607,14 +2048,14 @@ if st.session_state.current_section == "download" and st.session_state.analysis_
                     data=csv_performance,
                     file_name=f"model_performance_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    width='stretch'
+                    use_container_width=True
                 )
             except Exception as e:
                 st.error(f"Error generating performance report: {str(e)}")
     
     with col4:
         st.markdown("### 📋 Complete Analysis Report")
-        if st.button("📄 Download Complete", width='stretch', help="Download comprehensive analysis summary"):
+        if st.button("📄 Download Complete", use_container_width=True, help="Download comprehensive analysis summary"):
             try:
                 # Generate complete report
                 report_content = f"""
@@ -2659,7 +2100,7 @@ For questions or support, please contact the analytics team.
                     data=report_content,
                     file_name=f"complete_analysis_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.txt",
                     mime="text/plain",
-                    width='stretch'
+                    use_container_width=True
                 )
             except Exception as e:
                 st.error(f"Error generating complete report: {str(e)}")
@@ -2700,7 +2141,7 @@ elif st.session_state.analysis_completed:
     
     with col1:
         st.markdown("### 📈 Sales Forecast Report")
-        if st.button("📊 Download Forecasts", width='stretch', help="Download detailed sales forecasts for all products"):
+        if st.button("📊 Download Forecasts", use_container_width=True, help="Download detailed sales forecasts for all products"):
             try:
                 # Generate forecast report
                 forecast_data = []
@@ -2715,14 +2156,14 @@ elif st.session_state.analysis_completed:
                     data=csv_forecast,
                     file_name=f"sales_forecast_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    width='stretch'
+                    use_container_width=True
                 )
             except Exception as e:
                 st.error(f"Error generating forecast report: {str(e)}")
     
     with col2:
         st.markdown("### 📦 Inventory Report")
-        if st.button("📋 Download Inventory", width='stretch', help="Download inventory planning recommendations"):
+        if st.button("📋 Download Inventory", use_container_width=True, help="Download inventory planning recommendations"):
             try:
                 # Generate inventory report
                 inventory_data = []
@@ -2737,14 +2178,14 @@ elif st.session_state.analysis_completed:
                     data=csv_inventory,
                     file_name=f"inventory_planning_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    width='stretch'
+                    use_container_width=True
                 )
             except Exception as e:
                 st.error(f"Error generating inventory report: {str(e)}")
     
     with col3:
         st.markdown("### 🏆 Model Performance Report")
-        if st.button("📊 Download Performance", width='stretch', help="Download model performance metrics"):
+        if st.button("📊 Download Performance", use_container_width=True, help="Download model performance metrics"):
             try:
                 # Generate performance report
                 performance_data = []
@@ -2759,14 +2200,14 @@ elif st.session_state.analysis_completed:
                     data=csv_performance,
                     file_name=f"model_performance_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    width='stretch'
+                    use_container_width=True
                 )
             except Exception as e:
                 st.error(f"Error generating performance report: {str(e)}")
     
     with col4:
         st.markdown("### 📋 Complete Analysis Report")
-        if st.button("📄 Download Complete", width='stretch', help="Download comprehensive analysis summary"):
+        if st.button("📄 Download Complete", use_container_width=True, help="Download comprehensive analysis summary"):
             try:
                 # Generate complete report
                 report_content = f"""
@@ -2811,7 +2252,7 @@ For questions or support, please contact the analytics team.
                     data=report_content,
                     file_name=f"complete_analysis_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.txt",
                     mime="text/plain",
-                    width='stretch'
+                    use_container_width=True
                 )
             except Exception as e:
                 st.error(f"Error generating complete report: {str(e)}")
