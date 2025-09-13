@@ -518,7 +518,7 @@ apply_custom_css()
 
 # Enhanced Sidebar Navigation
 with st.sidebar:
-    st.markdown("""
+st.markdown("""
     <div style="text-align: center; padding: 1rem; background: var(--gradient-bg); border-radius: 10px; margin-bottom: 2rem;">
         <h2 style="color: white; margin: 0;">🏥 Pharma Analytics</h2>
         <p style="color: white; margin: 0.5rem 0 0 0; opacity: 0.9;">AI-Powered Sales Forecasting</p>
