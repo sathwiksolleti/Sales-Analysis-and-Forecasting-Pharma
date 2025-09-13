@@ -388,6 +388,16 @@ def apply_custom_css():
         font-weight: 700 !important;
     }
     
+    /* Style the Current Section indicator */
+    .css-1d391kg .stMarkdown p {
+        background: rgba(255, 255, 255, 0.9) !important;
+        padding: 0.5rem !important;
+        border-radius: 8px !important;
+        margin: 0.5rem 0 !important;
+        color: #333333 !important;
+        font-weight: 500 !important;
+    }
+    
     /* Custom scrollbar */
     ::-webkit-scrollbar {
         width: 8px;
@@ -456,6 +466,64 @@ def apply_custom_css():
     
     /* Fix sidebar navigation button text on hover */
     .stButton > button:hover {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Style navigation buttons with main heading background */
+    .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 0.75rem 1.5rem !important;
+        font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        margin: 0.25rem 0 !important;
+    }
+    
+    .stButton > button:hover {
+        background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Style the Quick Navigation section header */
+    .stMarkdown h3 {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        padding: 1rem !important;
+        border-radius: 12px !important;
+        text-align: center !important;
+        margin: 1rem 0 !important;
+    }
+    
+    /* Specific styling for sidebar navigation buttons */
+    .css-1d391kg .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 0.75rem 1.5rem !important;
+        font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        margin: 0.25rem 0 !important;
+    }
+    
+    .css-1d391kg .stButton > button:hover {
+        background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
         color: #ffffff !important;
         font-weight: 700 !important;
     }
