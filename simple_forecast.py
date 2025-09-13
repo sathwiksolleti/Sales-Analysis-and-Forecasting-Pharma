@@ -1,40 +1,38 @@
 #!/usr/bin/env python3
 """
-Simplified forecast script for Streamlit Cloud deployment
+Ultra-simplified forecast script for Streamlit Cloud deployment
+Uses only built-in Python libraries - no external dependencies
 """
 import os
 import sys
-import pandas as pd
-import numpy as np
-from pathlib import Path
+import csv
+import random
 
 def create_inventory_data():
     """Create sample inventory planning data"""
     print("Creating inventory planning data...")
     
-    inventory_data = []
-    for sku in ['M01AB', 'M01AE', 'Hour']:
-        inventory_data.append({
-            'sku_id': sku,
-            'annual_demand': np.random.randint(1000, 10000),
-            'safety_stock_weekly': np.random.randint(50, 200),
-            'reorder_point_weekly': np.random.randint(100, 500),
-            'service_level': '95%',
-            'lead_time_weeks': np.random.randint(1, 4)
-        })
+    # Create output directory
+    os.makedirs("data/outputs", exist_ok=True)
     
-    df_inventory = pd.DataFrame(inventory_data)
-    df_inventory.to_csv("data/outputs/inventory_planning.csv", index=False)
-    print(f"✅ Created inventory_planning.csv with {len(df_inventory)} records")
+    skus = ['M01AB', 'M01AE', 'Hour']
     
-    return df_inventory
+    with open("data/outputs/inventory_planning.csv", "w", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['sku_id', 'annual_demand', 'safety_stock_weekly', 'reorder_point_weekly', 'service_level', 'lead_time_weeks'])
+        
+        for sku in skus:
+            annual_demand = random.randint(1000, 10000)
+            safety_stock = random.randint(50, 200)
+            reorder_point = random.randint(100, 500)
+            lead_time = random.randint(1, 4)
+            writer.writerow([sku, annual_demand, safety_stock, reorder_point, '95%', lead_time])
+    
+    print("✅ Created inventory_planning.csv with sample data")
 
 if __name__ == "__main__":
     try:
-        print("🚀 Starting simplified forecast pipeline...")
-        
-        # Create output directory
-        os.makedirs("data/outputs", exist_ok=True)
+        print("🚀 Starting ultra-simplified forecast pipeline...")
         
         # Create inventory data
         create_inventory_data()
