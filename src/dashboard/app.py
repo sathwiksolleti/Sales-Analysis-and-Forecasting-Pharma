@@ -1110,7 +1110,11 @@ if uploaded_files is not None and len(uploaded_files) > 0:
     
     for i, uploaded_file in enumerate(uploaded_files):
         try:
-            st.subheader(f"📄 File {i+1}: {uploaded_file.name}")
+            st.markdown(f"""
+            <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 10px; margin: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+                <h4 style="color: #000000; margin: 0; font-weight: 700;">📄 File {i+1}: {uploaded_file.name}</h4>
+            </div>
+            """, unsafe_allow_html=True)
             
             # Try to read the file
             try:
@@ -1130,7 +1134,7 @@ if uploaded_files is not None and len(uploaded_files) > 0:
                 st.success("✅ File read successfully!")
                 
                 # Show sample data preview
-                st.write(f"**Shape:** {df_uploaded.shape}")
+                st.markdown(f"<div style='color: #000000; font-weight: 600; margin: 0.5rem 0;'><strong>Shape:</strong> {df_uploaded.shape}</div>", unsafe_allow_html=True)
                 st.dataframe(df_uploaded.head(5), width='stretch')
                         
             except Exception as read_error:
@@ -1157,10 +1161,14 @@ if uploaded_files is not None and len(uploaded_files) > 0:
     
     # Show combined data summary
     if all_data:
-        st.subheader("📊 Combined Data Summary")
+        st.markdown("""
+        <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+            <h3 style="color: #000000; margin: 0 0 1rem 0; font-weight: 700;">📊 Combined Data Summary</h3>
+        </div>
+        """, unsafe_allow_html=True)
         combined_df = pd.concat(all_data, ignore_index=True)
-        st.write(f"**Total Records:** {len(combined_df)}")
-        st.write(f"**Total Columns:** {len(combined_df.columns)}")
+        st.markdown(f"<div style='color: #000000; font-weight: 600; margin: 0.5rem 0;'><strong>Total Records:</strong> {len(combined_df)}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='color: #000000; font-weight: 600; margin: 0.5rem 0;'><strong>Total Columns:</strong> {len(combined_df.columns)}</div>", unsafe_allow_html=True)
         st.dataframe(combined_df.head(10), width='stretch')
         
     # Train Dataset Button (available for both uploaded and non-uploaded files)
