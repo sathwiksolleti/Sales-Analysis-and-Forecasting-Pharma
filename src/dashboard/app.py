@@ -494,30 +494,30 @@ with st.sidebar:
     # Navigation buttons with proper functionality
     if st.button("📊 Dashboard Overview", use_container_width=True, key="nav_overview"):
         st.session_state.current_section = "overview"
-        st.experimental_rerun()
+        st.rerun()
     
     # Show additional navigation options only after analysis is completed
     if st.session_state.analysis_completed:
         if st.button("📈 Sales Forecasts", use_container_width=True, key="nav_forecasts"):
             st.session_state.current_section = "forecasts"
-            st.experimental_rerun()
+            st.rerun()
         
         if st.button("📦 Inventory Planning", use_container_width=True, key="nav_inventory"):
             st.session_state.current_section = "inventory"
-            st.experimental_rerun()
+            st.rerun()
         
         if st.button("🎯 Model Performance", use_container_width=True, key="nav_performance"):
             st.session_state.current_section = "performance"
-            st.experimental_rerun()
+            st.rerun()
         
         if st.button("📁 Data Upload", use_container_width=True, key="nav_upload"):
             st.session_state.current_section = "upload"
-            st.experimental_rerun()
+            st.rerun()
         
         # Download Reports section - only show if analysis is completed
         if st.button("📥 Download Reports", use_container_width=True, key="nav_download"):
             st.session_state.current_section = "download"
-            st.experimental_rerun()
+            st.rerun()
     
     # Show current section
     st.markdown(f"**📍 Current Section:** {st.session_state.current_section.title()}")
@@ -879,7 +879,7 @@ if uploaded_files is not None and len(uploaded_files) > 0:
                         if result_forecast.returncode == 0:
                             st.success("🎉 Forecasting completed successfully!")
                             st.session_state.analysis_completed = True
-                            st.experimental_rerun()
+                            st.rerun()
                         else:
                             st.error("❌ Forecasting failed:")
                             st.code(result_forecast.stderr)
