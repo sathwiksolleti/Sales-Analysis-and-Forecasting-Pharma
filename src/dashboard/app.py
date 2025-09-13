@@ -492,30 +492,30 @@ with st.sidebar:
         st.session_state.analysis_completed = False
     
     # Navigation buttons with proper functionality
-    if st.button("📊 Dashboard Overview", use_container_width=True, key="nav_overview"):
+    if st.button("📊 Dashboard Overview", width='stretch', key="nav_overview"):
         st.session_state.current_section = "overview"
         st.rerun()
     
     # Show additional navigation options only after analysis is completed
     if st.session_state.analysis_completed:
-        if st.button("📈 Sales Forecasts", use_container_width=True, key="nav_forecasts"):
+        if st.button("📈 Sales Forecasts", width='stretch', key="nav_forecasts"):
             st.session_state.current_section = "forecasts"
             st.rerun()
         
-        if st.button("📦 Inventory Planning", use_container_width=True, key="nav_inventory"):
+        if st.button("📦 Inventory Planning", width='stretch', key="nav_inventory"):
             st.session_state.current_section = "inventory"
             st.rerun()
         
-        if st.button("🎯 Model Performance", use_container_width=True, key="nav_performance"):
+        if st.button("🎯 Model Performance", width='stretch', key="nav_performance"):
             st.session_state.current_section = "performance"
             st.rerun()
         
-        if st.button("📁 Data Upload", use_container_width=True, key="nav_upload"):
+        if st.button("📁 Data Upload", width='stretch', key="nav_upload"):
             st.session_state.current_section = "upload"
             st.rerun()
         
         # Download Reports section - only show if analysis is completed
-        if st.button("📥 Download Reports", use_container_width=True, key="nav_download"):
+        if st.button("📥 Download Reports", width='stretch', key="nav_download"):
             st.session_state.current_section = "download"
             st.rerun()
     
@@ -769,7 +769,7 @@ if uploaded_files is not None and len(uploaded_files) > 0:
                 
                 # Show sample data preview
                 st.write(f"**Shape:** {df_uploaded.shape}")
-                st.dataframe(df_uploaded.head(5), use_container_width=True)
+                st.dataframe(df_uploaded.head(5), width='stretch')
                     
             except Exception as read_error:
                 st.warning(f"⚠️ Could not read {uploaded_file.name}: {str(read_error)}")
@@ -799,7 +799,7 @@ if uploaded_files is not None and len(uploaded_files) > 0:
         combined_df = pd.concat(all_data, ignore_index=True)
         st.write(f"**Total Records:** {len(combined_df)}")
         st.write(f"**Total Columns:** {len(combined_df.columns)}")
-        st.dataframe(combined_df.head(10), use_container_width=True)
+        st.dataframe(combined_df.head(10), width='stretch')
         
     # Train Dataset Button (available for both uploaded and non-uploaded files)
     st.markdown("---")
@@ -812,7 +812,7 @@ if uploaded_files is not None and len(uploaded_files) > 0:
         
         if st.button("🎯 Generate Sales & Forecast", 
                     type="primary", 
-                    use_container_width=True,
+                    width='stretch',
                     disabled=not button_enabled,
                     help="Upload data files first to enable this button"):
             
@@ -1192,11 +1192,11 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         }
         
         metrics_df = pd.DataFrame(metrics_data)
-        st.dataframe(metrics_df, use_container_width=True)
+        st.dataframe(metrics_df, width='stretch')
         
         # Show inventory data table
         st.subheader("📋 Inventory Recommendations")
-        st.dataframe(inventory_df.head(10), use_container_width=True)
+        st.dataframe(inventory_df.head(10), width='stretch')
         
         st.success("""
             **📋 Inventory Management Guidelines:**
@@ -1217,12 +1217,12 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         
         with col1:
             st.write("**🚀 High Turnover SKUs (Fast Moving)**")
-            st.dataframe(high_turnover, use_container_width=True)
+            st.dataframe(high_turnover, width='stretch')
             st.caption("These SKUs move quickly - consider frequent reordering")
         
         with col2:
             st.write("**🐌 Low Turnover SKUs (Slow Moving)**")
-            st.dataframe(low_turnover, use_container_width=True)
+            st.dataframe(low_turnover, width='stretch')
             st.caption("These SKUs move slowly - consider reducing stock levels")
         
         # Safety stock analysis
@@ -1230,7 +1230,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         safety_analysis = inventory_df[['sku_id', 'safety_stock_weekly', 'safety_stock_monthly', 'safety_stock_annual']].copy()
         safety_analysis['safety_stock_ratio'] = (safety_analysis['safety_stock_weekly'] / inventory_df['avg_weekly_demand'] * 100).round(1)
         safety_analysis.columns = ['SKU', 'Weekly Safety Stock', 'Monthly Safety Stock', 'Annual Safety Stock', 'Safety Stock % of Demand']
-        st.dataframe(safety_analysis, use_container_width=True)
+        st.dataframe(safety_analysis, width='stretch')
         
         st.success("""
         **📋 Inventory Management Guidelines:**
@@ -1413,7 +1413,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         
         # Enhanced chart with loading animation
         with st.spinner("🔄 Generating forecast visualization..."):
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         # Add chart insights
         st.markdown("""
@@ -1451,7 +1451,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
             yaxis_title="WMAPE (Weighted Mean Absolute Percentage Error)",
             showlegend=False
         )
-        st.plotly_chart(fig_accuracy, use_container_width=True)
+        st.plotly_chart(fig_accuracy, width='stretch')
         
         # Model rankings table
         st.subheader("🏆 Model Rankings by Accuracy")
@@ -1541,7 +1541,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
         # Rename model column for better display
         df_display = df_display.rename(columns={'model': 'Model'})
         
-        st.dataframe(df_display, use_container_width=True)
+        st.dataframe(df_display, width='stretch')
         
         # Show top 3 models summary
         if len(df_ranked) >= 3:
@@ -1631,7 +1631,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                     color_discrete_sequence=px.colors.qualitative.Set3
                 )
                 fig_usage.update_traces(textposition='inside', textinfo='percent+label')
-                st.plotly_chart(fig_usage, use_container_width=True)
+                st.plotly_chart(fig_usage, width='stretch')
             
             with col2:
                 st.write("**Model Performance by SKU:**")
@@ -1681,7 +1681,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                         })
                 
                 sku_model_perf = pd.DataFrame(sku_performance)
-                st.dataframe(sku_model_perf, use_container_width=True)
+                st.dataframe(sku_model_perf, width='stretch')
         elif not df_m.empty:
             # Create best model selection from metrics data
             st.subheader("🎯 Best Model Selection per SKU")
@@ -1710,7 +1710,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                     color_discrete_sequence=px.colors.qualitative.Set3
                 )
                 fig_usage.update_traces(textposition='inside', textinfo='percent+label')
-                st.plotly_chart(fig_usage, use_container_width=True)
+                st.plotly_chart(fig_usage, width='stretch')
             
             with col2:
                 st.write("**Model Performance by SKU:**")
@@ -1751,7 +1751,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                         })
                 
                 sku_model_perf = pd.DataFrame(sku_performance)
-                st.dataframe(sku_model_perf, use_container_width=True)
+                st.dataframe(sku_model_perf, width='stretch')
         
         # Model explanations
         st.subheader("📚 Model Explanations")
@@ -1901,7 +1901,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                     'Accuracy %': [(1 - wmape) * 100 for wmape in df_ranked['wmape'].tolist()]
                 }
                 accuracy_df = pd.DataFrame(accuracy_data)
-                st.dataframe(accuracy_df, use_container_width=True)
+                st.dataframe(accuracy_df, width='stretch')
             
             with col2:
                 st.write("**📊 Performance Comparison:**")
@@ -1919,7 +1919,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                     yaxis_title="Accuracy (%)",
                     showlegend=False
                 )
-                st.plotly_chart(fig_comparison, use_container_width=True)
+                st.plotly_chart(fig_comparison, width='stretch')
         
         else:
             st.warning("No model performance data available. Please run the backtesting pipeline first.")
@@ -1931,7 +1931,7 @@ if False:  # Disabled duplicate section
     # Model Leaderboard
     if not df_leaderboard.empty:
         st.subheader("🏆 Model Leaderboard")
-        st.dataframe(df_leaderboard, use_container_width=True)
+        st.dataframe(df_leaderboard, width='stretch')
     
     # Best Models per SKU
     if not df_best.empty:
@@ -1940,9 +1940,9 @@ if False:  # Disabled duplicate section
         with col1:
             model_counts = df_best["best_model"].value_counts()
             fig = px.pie(values=model_counts.values, names=model_counts.index, title="Model Distribution")
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
         with col2:
-            st.dataframe(df_best, use_container_width=True)
+            st.dataframe(df_best, width='stretch')
     
     # Summary metrics
     summary_metrics = df_m.groupby("model").agg({
@@ -1964,7 +1964,7 @@ if False:  # Disabled duplicate section
     
     # Detailed metrics table
     st.subheader("📊 Detailed Model Performance")
-    st.dataframe(df_m, use_container_width=True)
+    st.dataframe(df_m, width='stretch')
 
 # Download Reports Section - Handle navigation and show content
 if st.session_state.current_section == "download" and st.session_state.analysis_completed:
@@ -1996,7 +1996,7 @@ if st.session_state.current_section == "download" and st.session_state.analysis_
     
     with col1:
         st.markdown("### 📈 Sales Forecast Report")
-        if st.button("📊 Download Forecasts", use_container_width=True, help="Download detailed sales forecasts for all products"):
+        if st.button("📊 Download Forecasts", width='stretch', help="Download detailed sales forecasts for all products"):
             try:
                 # Generate forecast report
                 forecast_data = []
@@ -2011,14 +2011,14 @@ if st.session_state.current_section == "download" and st.session_state.analysis_
                     data=csv_forecast,
                     file_name=f"sales_forecast_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    use_container_width=True
+                    width='stretch'
                 )
             except Exception as e:
                 st.error(f"Error generating forecast report: {str(e)}")
     
     with col2:
         st.markdown("### 📦 Inventory Report")
-        if st.button("📋 Download Inventory", use_container_width=True, help="Download inventory planning recommendations"):
+        if st.button("📋 Download Inventory", width='stretch', help="Download inventory planning recommendations"):
             try:
                 # Generate inventory report
                 inventory_data = []
@@ -2033,14 +2033,14 @@ if st.session_state.current_section == "download" and st.session_state.analysis_
                     data=csv_inventory,
                     file_name=f"inventory_planning_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    use_container_width=True
+                    width='stretch'
                 )
             except Exception as e:
                 st.error(f"Error generating inventory report: {str(e)}")
     
     with col3:
         st.markdown("### 🏆 Model Performance Report")
-        if st.button("📊 Download Performance", use_container_width=True, help="Download model performance metrics"):
+        if st.button("📊 Download Performance", width='stretch', help="Download model performance metrics"):
             try:
                 # Generate performance report
                 performance_data = []
@@ -2055,14 +2055,14 @@ if st.session_state.current_section == "download" and st.session_state.analysis_
                     data=csv_performance,
                     file_name=f"model_performance_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    use_container_width=True
+                    width='stretch'
                 )
             except Exception as e:
                 st.error(f"Error generating performance report: {str(e)}")
     
     with col4:
         st.markdown("### 📋 Complete Analysis Report")
-        if st.button("📄 Download Complete", use_container_width=True, help="Download comprehensive analysis summary"):
+        if st.button("📄 Download Complete", width='stretch', help="Download comprehensive analysis summary"):
             try:
                 # Generate complete report
                 report_content = f"""
@@ -2107,7 +2107,7 @@ For questions or support, please contact the analytics team.
                     data=report_content,
                     file_name=f"complete_analysis_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.txt",
                     mime="text/plain",
-                    use_container_width=True
+                    width='stretch'
                 )
             except Exception as e:
                 st.error(f"Error generating complete report: {str(e)}")
@@ -2148,7 +2148,7 @@ elif st.session_state.analysis_completed:
     
     with col1:
         st.markdown("### 📈 Sales Forecast Report")
-        if st.button("📊 Download Forecasts", use_container_width=True, help="Download detailed sales forecasts for all products"):
+        if st.button("📊 Download Forecasts", width='stretch', help="Download detailed sales forecasts for all products"):
             try:
                 # Generate forecast report
                 forecast_data = []
@@ -2163,14 +2163,14 @@ elif st.session_state.analysis_completed:
                     data=csv_forecast,
                     file_name=f"sales_forecast_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    use_container_width=True
+                    width='stretch'
                 )
             except Exception as e:
                 st.error(f"Error generating forecast report: {str(e)}")
     
     with col2:
         st.markdown("### 📦 Inventory Report")
-        if st.button("📋 Download Inventory", use_container_width=True, help="Download inventory planning recommendations"):
+        if st.button("📋 Download Inventory", width='stretch', help="Download inventory planning recommendations"):
             try:
                 # Generate inventory report
                 inventory_data = []
@@ -2185,14 +2185,14 @@ elif st.session_state.analysis_completed:
                     data=csv_inventory,
                     file_name=f"inventory_planning_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    use_container_width=True
+                    width='stretch'
                 )
             except Exception as e:
                 st.error(f"Error generating inventory report: {str(e)}")
     
     with col3:
         st.markdown("### 🏆 Model Performance Report")
-        if st.button("📊 Download Performance", use_container_width=True, help="Download model performance metrics"):
+        if st.button("📊 Download Performance", width='stretch', help="Download model performance metrics"):
             try:
                 # Generate performance report
                 performance_data = []
@@ -2207,14 +2207,14 @@ elif st.session_state.analysis_completed:
                     data=csv_performance,
                     file_name=f"model_performance_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
                     mime="text/csv",
-                    use_container_width=True
+                    width='stretch'
                 )
             except Exception as e:
                 st.error(f"Error generating performance report: {str(e)}")
     
     with col4:
         st.markdown("### 📋 Complete Analysis Report")
-        if st.button("📄 Download Complete", use_container_width=True, help="Download comprehensive analysis summary"):
+        if st.button("📄 Download Complete", width='stretch', help="Download comprehensive analysis summary"):
             try:
                 # Generate complete report
                 report_content = f"""
@@ -2259,7 +2259,7 @@ For questions or support, please contact the analytics team.
                     data=report_content,
                     file_name=f"complete_analysis_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.txt",
                     mime="text/plain",
-                    use_container_width=True
+                    width='stretch'
                 )
             except Exception as e:
                 st.error(f"Error generating complete report: {str(e)}")
