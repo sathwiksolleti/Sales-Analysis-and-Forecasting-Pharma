@@ -49,51 +49,6 @@ def apply_custom_css():
         padding-bottom: 2rem;
     }
     
-    /* Ensure all text is visible */
-    .main .block-container * {
-        color: inherit !important;
-    }
-    
-    /* Make sure Streamlit text elements are visible */
-    .stMarkdown, .stText, .stWrite, .stInfo, .stWarning, .stError, .stSuccess {
-        color: #262730 !important;
-    }
-    
-    /* Upload area text visibility */
-    .uploadedFile {
-        color: #262730 !important;
-    }
-    
-    /* File uploader text visibility */
-    .stFileUploader label {
-        color: #262730 !important;
-    }
-    
-    /* Upload status text */
-    .stFileUploader > div > div {
-        color: #262730 !important;
-    }
-    
-    /* Progress bar text */
-    .stProgress > div > div > div {
-        color: #262730 !important;
-    }
-    
-    /* File uploader area text */
-    .stFileUploader > div {
-        color: #262730 !important;
-    }
-    
-    /* Drag and drop text */
-    .stFileUploader > div > div > div {
-        color: #262730 !important;
-    }
-    
-    /* Upload button text */
-    .stFileUploader button {
-        color: white !important;
-    }
-    
     /* Styling for the main content area */
     .stApp {
         background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
@@ -140,8 +95,8 @@ def apply_custom_css():
         font-size: 1.2rem;
         margin: 0.5rem 0 0 0;
         color: white !important;
-        opacity: 1;
-        animation: fadeInUp 1s ease-out 0.5s both;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 2s both;
     }
     
     /* Glow animation for heading */
