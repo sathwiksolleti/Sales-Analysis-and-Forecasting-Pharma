@@ -15,7 +15,7 @@ def create_inventory_data():
     # Create output directory
     os.makedirs("data/outputs", exist_ok=True)
     
-    skus = ['M01AB', 'M01AE', 'Hour']
+    skus = ['M01AB', 'M01AE', 'N02BA', 'N02BE', 'N05B', 'N05C', 'R03', 'R06']
     
     with open("data/outputs/inventory_planning.csv", "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
