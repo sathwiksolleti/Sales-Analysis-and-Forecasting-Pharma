@@ -43,7 +43,7 @@ def apply_custom_css():
     
     /* Main app background */
     .main .block-container {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
         padding-top: 2rem;
         padding-bottom: 2rem;
@@ -51,7 +51,7 @@ def apply_custom_css():
     
     /* Styling for the main content area */
     .stApp {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
     
     /* Enhanced header styling */
@@ -363,18 +363,29 @@ def apply_custom_css():
     
     /* Enhanced sidebar */
     .css-1d391kg {
-        background: linear-gradient(180deg, rgba(248, 249, 250, 0.95) 0%, rgba(233, 236, 239, 0.95) 100%);
+        background: linear-gradient(180deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
         backdrop-filter: var(--backdrop-blur);
         border-right: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     /* Sidebar elements */
     .css-1d391kg .stMarkdown {
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.9);
         border-radius: 8px;
         padding: 0.5rem;
         margin: 0.5rem 0;
         backdrop-filter: var(--backdrop-blur);
+    }
+    
+    /* Fix sidebar text visibility with new background */
+    .css-1d391kg .stMarkdown * {
+        color: #333333 !important;
+        font-weight: 500 !important;
+    }
+    
+    .css-1d391kg .stMarkdown strong {
+        color: #000000 !important;
+        font-weight: 700 !important;
     }
     
     /* Custom scrollbar */
