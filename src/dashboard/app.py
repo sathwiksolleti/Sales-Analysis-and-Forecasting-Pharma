@@ -857,9 +857,9 @@ if uploaded_files is not None and len(uploaded_files) > 0:
                     env = os.environ.copy()
                     env['PYTHONPATH'] = os.getcwd()
                     
-                    # Run training
+                    # Run simplified training
                     result_training = subprocess.run(
-                        ["python", "run_training.py"],
+                        ["python", "simple_training.py"],
                         capture_output=True,
                         text=True,
                         env=env
@@ -868,9 +868,9 @@ if uploaded_files is not None and len(uploaded_files) > 0:
                     if result_training.returncode == 0:
                         st.success("✅ Training completed successfully!")
                         
-                        # Run forecasting
+                        # Run simplified forecasting
                         result_forecast = subprocess.run(
-                            ["python", "run_forecast.py"],
+                            ["python", "simple_forecast.py"],
                             capture_output=True,
                             text=True,
                             env=env
