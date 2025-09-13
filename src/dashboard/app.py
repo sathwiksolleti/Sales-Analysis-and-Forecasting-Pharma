@@ -433,7 +433,143 @@ def apply_custom_css():
     .stSelectbox div[data-testid="stSelectbox"] span,
     .stSelectbox div[data-testid="stSelectbox"] div,
     .stSelectbox div[data-testid="stSelectbox"] p {
+        color: #000000 !important;
+    }
+    
+    /* Fix sidebar navigation button text visibility */
+    .stButton > button {
         color: #ffffff !important;
+        font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+    }
+    
+    /* Fix sidebar navigation button text on hover */
+    .stButton > button:hover {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Fix sidebar text visibility */
+    .css-1d391kg .stMarkdown,
+    .css-1d391kg .stMarkdown * {
+        color: #333333 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Fix current section indicator text */
+    .css-1d391kg .stMarkdown strong {
+        color: #1f77b4 !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Fix Performance Insights text visibility */
+    .stInfo {
+        color: #000000 !important;
+    }
+    
+    .stInfo * {
+        color: #000000 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Fix model explanation expander text */
+    .streamlit-expanderHeader {
+        color: #333333 !important;
+        font-weight: 600 !important;
+    }
+    
+    .streamlit-expanderContent {
+        color: #333333 !important;
+    }
+    
+    .streamlit-expanderContent * {
+        color: #333333 !important;
+    }
+    
+    /* Fix metric text visibility */
+    .metric-value {
+        color: #1f77b4 !important;
+        font-weight: 700 !important;
+    }
+    
+    .metric-label {
+        color: #555555 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix section header text */
+    .section-header {
+        color: #333333 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix main header text */
+    .main-header h1 {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+    }
+    
+    .main-header p {
+        color: #ffffff !important;
+        font-weight: 500 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+    }
+    
+    /* Fix all text visibility issues */
+    .stMarkdown {
+        color: #333333 !important;
+    }
+    
+    .stMarkdown * {
+        color: #333333 !important;
+    }
+    
+    /* Fix subheader text */
+    .stSubheader {
+        color: #333333 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix write text */
+    .stWrite {
+        color: #333333 !important;
+    }
+    
+    /* Fix metric text */
+    .metric {
+        color: #333333 !important;
+    }
+    
+    /* Fix dataframe text */
+    .dataframe {
+        color: #333333 !important;
+    }
+    
+    /* Fix success/error/info message text */
+    .stSuccess, .stError, .stWarning, .stInfo {
+        color: #000000 !important;
+    }
+    
+    .stSuccess *, .stError *, .stWarning *, .stInfo * {
+        color: #000000 !important;
+    }
+    
+    /* Fix sidebar header text */
+    .css-1d391kg h1, .css-1d391kg h2, .css-1d391kg h3 {
+        color: #333333 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix section indicator text */
+    .metric-card h3 {
+        color: #1f77b4 !important;
+        font-weight: 700 !important;
+    }
+    
+    .metric-card p {
+        color: #666666 !important;
+        font-weight: 500 !important;
     }
     
     </style>
@@ -930,7 +1066,12 @@ if uploaded_files is not None and len(uploaded_files) > 0:
 # Show section-specific content for other sections (only if analysis not completed)
 if not st.session_state.analysis_completed:
     if st.session_state.current_section == "forecasts":
-        st.info("📈 **Sales Forecasts Section** - This section will show forecasting charts and controls when data is available.")
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); padding: 1.5rem; border-radius: 10px; margin: 1rem 0; border-left: 4px solid #1f618d;">
+            <h4 style="color: #ecf0f1; margin-bottom: 1rem;">📈 Sales Forecasts Section</h4>
+            <p style="color: #ecf0f1; margin: 0;">This section will show forecasting charts and controls when data is available.</p>
+        </div>
+        """, unsafe_allow_html=True)
         # Add a simple message for now
         st.markdown("### 🔮 Sales Forecasting Features")
         st.markdown("""
@@ -941,7 +1082,12 @@ if not st.session_state.analysis_completed:
         - **Inventory Integration**: Reorder points and safety stock indicators
         """)
     elif st.session_state.current_section == "inventory":
-        st.info("📦 **Inventory Planning Section** - This section will show inventory metrics and recommendations when data is available.")
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); padding: 1.5rem; border-radius: 10px; margin: 1rem 0; border-left: 4px solid #a93226;">
+            <h4 style="color: #ecf0f1; margin-bottom: 1rem;">📦 Inventory Planning Section</h4>
+            <p style="color: #ecf0f1; margin: 0;">This section will show inventory metrics and recommendations when data is available.</p>
+        </div>
+        """, unsafe_allow_html=True)
         # Add a simple message for now
         st.markdown("### 📦 Inventory Planning Features")
         st.markdown("""
@@ -952,7 +1098,12 @@ if not st.session_state.analysis_completed:
         - **Multi-Period Planning**: Daily, Weekly, Monthly, and Annual views
         """)
     elif st.session_state.current_section == "performance":
-        st.info("🎯 **Model Performance Section** - This section will show model accuracy and comparisons when data is available.")
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); padding: 1.5rem; border-radius: 10px; margin: 1rem 0; border-left: 4px solid #d68910;">
+            <h4 style="color: #ecf0f1; margin-bottom: 1rem;">🎯 Model Performance Section</h4>
+            <p style="color: #ecf0f1; margin: 0;">This section will show model accuracy and comparisons when data is available.</p>
+        </div>
+        """, unsafe_allow_html=True)
         # Add a simple message for now
         st.markdown("### 🎯 Model Performance Features")
         st.markdown("""
@@ -963,7 +1114,12 @@ if not st.session_state.analysis_completed:
         - **Real-time Monitoring**: Live performance tracking
         """)
     elif st.session_state.current_section == "upload":
-        st.info("📁 **Data Upload Section** - This section will show file upload interface and data processing tools.")
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); padding: 1.5rem; border-radius: 10px; margin: 1rem 0; border-left: 4px solid #7d3c98;">
+            <h4 style="color: #ecf0f1; margin-bottom: 1rem;">📁 Data Upload Section</h4>
+            <p style="color: #ecf0f1; margin: 0;">This section will show file upload interface and data processing tools.</p>
+        </div>
+        """, unsafe_allow_html=True)
         # Add a simple message for now
         st.markdown("### 📁 Data Upload Features")
         st.markdown("""
@@ -1186,19 +1342,23 @@ if df_fcst.empty and df_m.empty and df_best.empty and df_leaderboard.empty:
 if not st.session_state.analysis_completed:
     st.markdown("---")
     st.markdown("### 🚀 Ready to Start Analysis")
-    st.info("""
-    **📋 To view forecasts, inventory planning, and model performance:**
-    
-    1. **Upload your data** in the Data Upload Center section
-    2. **Click "Generate Sales & Forecast"** button
-    3. **Wait for analysis to complete** (this may take a few minutes)
-    4. **Navigate to other sections** to view your results
-    
-    **🎯 What you'll get:**
-    - 📈 **Sales Forecasts** - Future demand predictions
-    - 📦 **Inventory Planning** - Reorder points and safety stock
-    - 🏆 **Model Performance** - Accuracy metrics and rankings
-    """)
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%); padding: 2rem; border-radius: 10px; margin: 1rem 0; border-left: 4px solid #1e8449;">
+        <h4 style="color: #ecf0f1; margin-bottom: 1.5rem;">📋 To view forecasts, inventory planning, and model performance:</h4>
+        <div style="color: #ecf0f1; line-height: 1.6;">
+            <p><strong>1. Upload your data</strong> in the Data Upload Center section</p>
+            <p><strong>2. Click "Generate Sales & Forecast"</strong> button</p>
+            <p><strong>3. Wait for analysis to complete</strong> (this may take a few minutes)</p>
+            <p><strong>4. Navigate to other sections</strong> to view your results</p>
+        </div>
+        <h4 style="color: #ecf0f1; margin-top: 1.5rem; margin-bottom: 1rem;">🎯 What you'll get:</h4>
+        <div style="color: #ecf0f1; line-height: 1.6;">
+            <p>📈 <strong>Sales Forecasts</strong> - Future demand predictions</p>
+            <p>📦 <strong>Inventory Planning</strong> - Reorder points and safety stock</p>
+            <p>🏆 <strong>Model Performance</strong> - Accuracy metrics and rankings</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     st.stop()
 
 # Show data sections only when analysis is completed and we have data
@@ -1858,7 +2018,7 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
                 # Add performance metrics if available
                 if not df_ranked.empty and model_name in df_ranked['model'].values:
                     model_data = df_ranked[df_ranked['model'] == model_name].iloc[0]
-                    st.write("**📊 Current Performance:**")
+                    st.markdown("<div style='color: #1976d2; font-weight: 600; margin-top: 1rem;'>📊 Current Performance:</div>", unsafe_allow_html=True)
                     col1, col2, col3 = st.columns(3)
                     with col1:
                         st.metric("WMAPE", f"{model_data['wmape']:.4f}")
@@ -1888,20 +2048,24 @@ if st.session_state.analysis_completed and not df_fcst.empty and st.session_stat
             best_accuracy = (1 - best_wmape) * 100
             worst_accuracy = (1 - worst_wmape) * 100
             
-            st.info(f"""
-            **🎯 Key Performance Insights:**
-            - **🏆 Ultra-High Performance**: The best model achieves {improvement:.1f}% better accuracy than the worst model
-            - **🥇 ETS Ultra-Excellence**: ETS model leads with {best_accuracy:.2f}% accuracy (WMAPE: {best_wmape:.4f}) - ULTRA-HIGH WORLD-CLASS
-            - **🥈 SARIMAX Ultra-Superiority**: SARIMAX achieves 99.97% accuracy with ultra-exceptional seasonal pattern recognition
-            - **🥉 LightGBM Ultra-Excellence**: LightGBM delivers 99.92% accuracy with ultra-advanced machine learning capabilities
-            - **📈 Ultra-Exceptional Standards**: All models demonstrate ultra-high performance with accuracy above 99.9%
-            - **🎯 SKU Optimization**: Model selection is performed per SKU to optimize individual product forecasts
-            - **🔬 Ultra-Advanced Methodology**: All models use cutting-edge feature engineering and evaluation techniques
-            - **📊 Ultra-Consistent Results**: Performance remains consistently ultra-high across different data characteristics and seasonal patterns
-            - **🚀 Ultra-Production Ready**: Models are optimized for real-world pharmaceutical forecasting scenarios
-            - **🌟 Ultra-Industry Leading**: These accuracy levels far exceed industry benchmarks for pharmaceutical forecasting
-            - **🎖️ Benchmark Setting**: These models set new industry standards for pharmaceutical sales forecasting accuracy
-            """)
+            st.markdown(f"""
+            <div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); padding: 2rem; border-radius: 10px; margin: 1rem 0; border-left: 4px solid #3498db;">
+                <h3 style="color: #ecf0f1; margin-bottom: 1.5rem; font-size: 1.4rem;">🎯 Key Performance Insights</h3>
+                <div style="color: #ecf0f1; line-height: 1.6;">
+                    <p><strong>🏆 Ultra-High Performance:</strong> The best model achieves {improvement:.1f}% better accuracy than the worst model</p>
+                    <p><strong>🥇 ETS Ultra-Excellence:</strong> ETS model leads with {best_accuracy:.2f}% accuracy (WMAPE: {best_wmape:.4f}) - ULTRA-HIGH WORLD-CLASS</p>
+                    <p><strong>🥈 SARIMAX Ultra-Superiority:</strong> SARIMAX achieves 99.97% accuracy with ultra-exceptional seasonal pattern recognition</p>
+                    <p><strong>🥉 LightGBM Ultra-Excellence:</strong> LightGBM delivers 99.92% accuracy with ultra-advanced machine learning capabilities</p>
+                    <p><strong>📈 Ultra-Exceptional Standards:</strong> All models demonstrate ultra-high performance with accuracy above 99.9%</p>
+                    <p><strong>🎯 SKU Optimization:</strong> Model selection is performed per SKU to optimize individual product forecasts</p>
+                    <p><strong>🔬 Ultra-Advanced Methodology:</strong> All models use cutting-edge feature engineering and evaluation techniques</p>
+                    <p><strong>📊 Ultra-Consistent Results:</strong> Performance remains consistently ultra-high across different data characteristics and seasonal patterns</p>
+                    <p><strong>🚀 Ultra-Production Ready:</strong> Models are optimized for real-world pharmaceutical forecasting scenarios</p>
+                    <p><strong>🌟 Ultra-Industry Leading:</strong> These accuracy levels far exceed industry benchmarks for pharmaceutical forecasting</p>
+                    <p><strong>🎖️ Benchmark Setting:</strong> These models set new industry standards for pharmaceutical sales forecasting accuracy</p>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
             
             # Additional insights
             st.subheader("📈 Model Performance Analysis")
@@ -2128,8 +2292,18 @@ For questions or support, please contact the analytics team.
 
 elif st.session_state.current_section == "download" and not st.session_state.analysis_completed:
     st.header("📥 Download Reports")
-    st.warning("⚠️ Please complete the analysis first by uploading data and clicking 'Generate Sales & Forecast' to access download reports.")
-    st.info("💡 Navigate to the 'Data Upload' section to get started!")
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); padding: 1.5rem; border-radius: 10px; margin: 1rem 0; border-left: 4px solid #d68910;">
+        <h4 style="color: #ecf0f1; margin-bottom: 1rem;">⚠️ Analysis Required</h4>
+        <p style="color: #ecf0f1; margin: 0;">Please complete the analysis first by uploading data and clicking 'Generate Sales & Forecast' to access download reports.</p>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); padding: 1.5rem; border-radius: 10px; margin: 1rem 0; border-left: 4px solid #1f618d;">
+        <h4 style="color: #ecf0f1; margin-bottom: 1rem;">💡 Get Started</h4>
+        <p style="color: #ecf0f1; margin: 0;">Navigate to the 'Data Upload' section to get started!</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Download Reports Section - Only show after analysis is completed (fallback)
 elif st.session_state.analysis_completed:
