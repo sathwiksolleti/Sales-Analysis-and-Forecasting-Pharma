@@ -22,73 +22,39 @@ def apply_custom_css():
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
     :root {
-        /* Modern Color Palette */
         --primary-color: #2563eb;
         --primary-light: #3b82f6;
-        --primary-dark: #1d4ed8;
         --secondary-color: #7c3aed;
-        --accent-color: #06b6d4;
-        --success-color: #10b981;
-        --warning-color: #f59e0b;
-        --error-color: #ef4444;
-        
-        /* Neutral Colors */
-        --white: #ffffff;
-        --gray-50: #f9fafb;
-        --gray-100: #f3f4f6;
-        --gray-200: #e5e7eb;
-        --gray-300: #d1d5db;
-        --gray-400: #9ca3af;
-        --gray-500: #6b7280;
-        --gray-600: #4b5563;
-        --gray-700: #374151;
-        --gray-800: #1f2937;
-        --gray-900: #111827;
-        
-        /* Glassmorphism Effects */
         --glass-bg: rgba(255, 255, 255, 0.08);
         --glass-bg-light: rgba(255, 255, 255, 0.12);
         --glass-border: rgba(255, 255, 255, 0.18);
         --glass-backdrop: blur(20px);
         --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         --glass-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.18);
-        
-        /* Typography */
         --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        
-        /* Transitions */
         --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        
-        /* Spacing & Sizing */
         --radius-sm: 8px;
         --radius-md: 12px;
         --radius-lg: 16px;
         --radius-xl: 20px;
         --radius-2xl: 24px;
-        
-        /* Shadows */
-        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
         --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
-        --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
-        
-        /* Gradients */
         --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         --gradient-surface: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
         --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-700: #374151;
     }
     
-    /* Global Typography */
     * {
         font-family: var(--font-primary);
         box-sizing: border-box;
     }
     
-    /* Main Layout */
     .main .block-container {
         background: var(--gradient-primary);
         min-height: 100vh;
@@ -103,10 +69,7 @@ def apply_custom_css():
         left: 0;
         right: 0;
         bottom: 0;
-        background: 
-            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
         pointer-events: none;
         z-index: 0;
     }
@@ -116,7 +79,6 @@ def apply_custom_css():
         font-family: var(--font-primary);
     }
     
-    /* Enhanced Header Styling */
     .main-header {
         background: var(--glass-bg-light);
         backdrop-filter: var(--glass-backdrop);
@@ -173,7 +135,6 @@ def apply_custom_css():
         z-index: 1;
     }
     
-    /* Enhanced Metric Cards */
     .metric-card {
         background: var(--glass-bg-light);
         backdrop-filter: var(--glass-backdrop);
@@ -228,7 +189,6 @@ def apply_custom_css():
         z-index: 1;
     }
     
-    /* Enhanced Section Headers */
     .section-header {
         background: var(--glass-bg-light);
         backdrop-filter: var(--glass-backdrop);
@@ -265,7 +225,6 @@ def apply_custom_css():
         border-color: rgba(255, 255, 255, 0.25);
     }
     
-    /* Enhanced Data Tables */
     .dataframe {
         border-radius: var(--radius-xl);
         overflow: hidden;
@@ -334,7 +293,6 @@ def apply_custom_css():
         border-bottom-color: rgba(255, 255, 255, 0.2);
     }
     
-    /* Enhanced Buttons */
     .stButton > button {
         background: var(--glass-bg-light);
         backdrop-filter: var(--glass-backdrop);
@@ -378,10 +336,9 @@ def apply_custom_css():
     
     .stButton > button:active {
         transform: translateY(-1px);
-        box-shadow: var(--shadow-lg);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     }
     
-    /* Typography Enhancements */
     h1, h2, h3, h4, h5, h6 {
         color: white !important;
         font-weight: 600 !important;
@@ -407,7 +364,6 @@ def apply_custom_css():
         font-family: var(--font-heading) !important;
     }
     
-    /* Enhanced Metric Containers */
     .element-container [data-testid="metric-container"] {
         background: var(--glass-bg-light) !important;
         backdrop-filter: var(--glass-backdrop) !important;
@@ -446,7 +402,6 @@ def apply_custom_css():
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
     }
     
-    /* Enhanced Expanders */
     .streamlit-expanderHeader {
         background: var(--glass-bg-light) !important;
         backdrop-filter: var(--glass-backdrop) !important;
@@ -492,35 +447,28 @@ def apply_custom_css():
         line-height: 1.6 !important;
     }
     
-    /* Responsive Design */
     @media (max-width: 768px) {
         .main .block-container {
             padding: 1rem;
         }
-        
         .main-header {
             padding: 2rem 1.5rem;
         }
-        
         .main-header h1 {
             font-size: 2.5rem;
         }
-        
         .metric-card {
             padding: 1.5rem 1.25rem;
         }
-        
         .metric-value {
             font-size: 2.25rem;
         }
-        
         .section-header {
             padding: 1.5rem 1.75rem;
             font-size: 1.5rem;
         }
     }
     
-    /* Accessibility Improvements */
     @media (prefers-reduced-motion: reduce) {
         * {
             animation-duration: 0.01ms !important;
@@ -529,7 +477,6 @@ def apply_custom_css():
         }
     }
     
-    /* High Contrast Mode Support */
     @media (prefers-contrast: high) {
         :root {
             --glass-bg: rgba(255, 255, 255, 0.15);
@@ -2468,3 +2415,4 @@ For questions or support, please contact the analytics team.
         </p>
     </div>
     """, unsafe_allow_html=True)
+
