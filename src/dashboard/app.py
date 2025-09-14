@@ -18,7 +18,7 @@ except ImportError:
 # Enhanced UI/UX Styling
 def apply_custom_css():
     """Apply custom CSS for enhanced UI/UX"""
-    st.markdown("""
+    css_content = """
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
     :root {
@@ -484,7 +484,8 @@ def apply_custom_css():
         }
     }
     </style>
-    """, unsafe_allow_html=True)
+    """
+    st.markdown(css_content, unsafe_allow_html=True)
 
 def create_metric_card(title, value, delta=None, icon="📊"):
     """Create a styled metric card"""
@@ -2415,4 +2416,3 @@ For questions or support, please contact the analytics team.
         </p>
     </div>
     """, unsafe_allow_html=True)
-
