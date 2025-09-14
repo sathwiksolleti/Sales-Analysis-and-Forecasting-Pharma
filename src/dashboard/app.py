@@ -19,256 +19,857 @@ except ImportError:
 def apply_custom_css():
     """Apply custom CSS for enhanced UI/UX"""
     st.markdown("""
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+    /* Main theme colors */
     :root {
-        --primary-color: #3b82f6;
-        --secondary-color: #8b5cf6;
-        --glass-bg: rgba(255, 255, 255, 0.1);
-        --glass-border: rgba(255, 255, 255, 0.2);
-        --glass-backdrop: blur(16px);
-        --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        --font-primary: 'Inter', sans-serif;
-        --font-heading: 'Poppins', sans-serif;
-        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        --radius-lg: 16px;
-        --radius-md: 12px;
+        --primary-color: #1f77b4;
+        --secondary-color: #ff7f0e;
+        --success-color: #2ca02c;
+        --warning-color: #d62728;
+        --info-color: #9467bd;
+        --light-bg: #f8f9fa;
+        --dark-bg: #2c3e50;
+        --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-bg-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-bg-3: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        --gradient-bg-4: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-bg-5: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        --hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        --glow-effect: 0 0 20px rgba(37, 99, 235, 0.3);
+        --glass-effect: rgba(255, 255, 255, 0.9);
+        --backdrop-blur: blur(10px);
     }
     
-    * {
-        font-family: var(--font-primary);
-    }
-    
+    /* Main app background */
     .main .block-container {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
-        padding: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
     
+    /* Styling for the main content area */
     .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
     
+    /* Enhanced header styling */
     .main-header {
-        background: var(--glass-bg);
-        backdrop-filter: var(--glass-backdrop);
-        -webkit-backdrop-filter: var(--glass-backdrop);
-        border: 1px solid var(--glass-border);
-        padding: 3rem 2rem;
-        border-radius: var(--radius-lg);
+        background: var(--gradient-bg-5);
+        padding: 3rem 1rem;
+        border-radius: 20px;
         margin-bottom: 2rem;
-        box-shadow: var(--glass-shadow);
+        box-shadow: var(--hover-shadow);
         text-align: center;
         color: white;
-        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        animation: slideInDown 1s ease-out;
     }
     
-    .main-header:hover {
-        transform: translateY(-2px);
+    .main-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient-bg-2);
+        opacity: 0.1;
+        animation: shimmer 3s infinite;
     }
     
     .main-header h1 {
-        font-family: var(--font-heading);
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 700;
         margin: 0;
         color: white !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        animation: fadeInUp 1s ease-out, glow 2s ease-in-out 2s infinite alternate;
+        position: relative;
     }
+    
     
     .main-header p {
-        font-size: 1.25rem;
-        color: rgba(255, 255, 255, 0.9) !important;
+        font-size: 1.2rem;
+        margin: 0.5rem 0 0 0;
+        color: white !important;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 2s both;
     }
     
+    /* Glow animation for heading */
+    @keyframes glow {
+        from { 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 10px rgba(255,255,255,0.3);
+            transform: scale(1);
+        }
+        to { 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.6), 0 0 30px rgba(255,255,255,0.4);
+            transform: scale(1.02);
+        }
+    }
+    
+    
+    /* Enhanced metric cards */
     .metric-card {
-        background: var(--glass-bg);
-        backdrop-filter: var(--glass-backdrop);
-        -webkit-backdrop-filter: var(--glass-backdrop);
-        border: 1px solid var(--glass-border);
-        padding: 2rem 1.5rem;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--glass-shadow);
-        transition: var(--transition);
+        background: transparent;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: none;
+        border: none;
+        transition: all 0.3s ease;
         margin-bottom: 1rem;
+        backdrop-filter: none;
     }
     
     .metric-card:hover {
-        transform: translateY(-4px);
+        transform: translateY(-3px);
+        box-shadow: none;
+        background: transparent;
     }
     
     .metric-value {
-        font-family: var(--font-heading);
-        font-size: 2.75rem;
+        font-size: 2.5rem;
         font-weight: 700;
         color: var(--primary-color);
         margin: 0;
     }
     
     .metric-label {
-        font-size: 0.875rem;
-        color: #6b7280;
-        margin: 0 0 0.75rem 0;
+        font-size: 1rem;
+        color: #555;
+        margin: 0;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 600;
+        letter-spacing: 2px;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
     }
     
+    /* Enhanced section headers */
     .section-header {
-        background: var(--glass-bg);
-        backdrop-filter: var(--glass-backdrop);
-        -webkit-backdrop-filter: var(--glass-backdrop);
-        border: 1px solid var(--glass-border);
-        color: white;
-        padding: 1.5rem 2rem;
-        border-radius: var(--radius-lg);
-        margin: 2rem 0 1.5rem 0;
-        font-family: var(--font-heading);
-        font-size: 1.75rem;
-        font-weight: 600;
-        box-shadow: var(--glass-shadow);
-        transition: var(--transition);
+        background: transparent;
+        color: #000000;
+        padding: 1.2rem 1.5rem;
+        border-radius: 12px;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        border: none;
+        backdrop-filter: none;
     }
     
-    .section-header:hover {
-        transform: translateY(-2px);
-    }
-    
+    /* Enhanced data tables */
     .dataframe {
-        border-radius: var(--radius-lg);
+        border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        border: 1px solid #e5e7eb;
-        background: white;
+        box-shadow: var(--card-shadow);
     }
     
     .dataframe th {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        background: var(--primary-color) !important;
         color: white !important;
         font-weight: 600;
         text-align: center;
-        padding: 1rem 0.75rem !important;
-        font-size: 0.875rem;
     }
     
     .dataframe td {
         text-align: center;
-        padding: 0.875rem 0.75rem !important;
-        font-size: 0.875rem;
-        color: #374151;
+        padding: 0.75rem !important;
     }
     
     .dataframe tr:nth-child(even) {
-        background-color: #f9fafb;
+        background-color: #f8f9fa;
     }
     
     .dataframe tr:hover {
-        background-color: var(--primary-color);
-        color: white;
+        background-color: #e3f2fd;
+        transition: background-color 0.3s ease;
     }
     
-    .dataframe tr:hover td {
-        color: white;
-    }
-    
+    /* Enhanced buttons */
     .stButton > button {
-        background: var(--glass-bg);
-        backdrop-filter: var(--glass-backdrop);
-        -webkit-backdrop-filter: var(--glass-backdrop);
-        border: 1px solid var(--glass-border);
+        background: var(--gradient-bg);
         color: white;
-        border-radius: var(--radius-md);
-        padding: 0.875rem 2rem;
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem 2rem;
         font-weight: 600;
-        font-size: 0.875rem;
-        transition: var(--transition);
-        box-shadow: var(--glass-shadow);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: var(--card-shadow);
     }
     
     .stButton > button:hover {
         transform: translateY(-2px);
+        box-shadow: var(--hover-shadow);
+        background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
     }
     
-    h1, h2, h3, h4, h5, h6 {
-        color: white !important;
+    /* Style navigation buttons with main heading background */
+    .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 0.75rem 1.5rem !important;
         font-weight: 600 !important;
-        font-family: var(--font-heading) !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        margin: 0.25rem 0 !important;
+    }
+    
+    .stButton > button:hover {
+        background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Style the Quick Navigation section header */
+    .stMarkdown h3 {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        padding: 1rem !important;
+        border-radius: 12px !important;
+        text-align: center !important;
+        margin: 1rem 0 !important;
+    }
+    
+    /* Specific styling for sidebar navigation buttons */
+    .css-1d391kg .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 0.75rem 1.5rem !important;
+        font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        margin: 0.25rem 0 !important;
+    }
+    
+    .css-1d391kg .stButton > button:hover {
+        background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Enhanced file uploader */
+    .stFileUploader > div {
+        border: 2px dashed var(--primary-color);
+        border-radius: 15px;
+        padding: 2rem;
+        background: #f8f9fa;
+        transition: all 0.3s ease;
+    }
+    
+    .stFileUploader > div:hover {
+        border-color: var(--secondary-color);
+        background: #e3f2fd;
+    }
+    
+    /* Enhanced tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        background: white;
+        border-radius: 10px 10px 0 0;
+        border: 1px solid #e0e0e0;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .stTabs [aria-selected="true"] {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+    }
+    
+    /* Enhanced selectbox */
+    .stSelectbox > div > div {
+        border-radius: 10px;
+        border: 2px solid #e0e0e0;
+        transition: border-color 0.3s ease;
+    }
+    
+    .stSelectbox > div > div:focus-within {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(31, 119, 180, 0.1);
+    }
+    
+    /* Loading animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    @keyframes slideInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+    
+    @keyframes glow {
+        0%, 100% { box-shadow: 0 0 5px rgba(37, 99, 235, 0.3); }
+        50% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.6); }
+    }
+    
+    .pulse-animation {
+        animation: pulse 2s infinite;
+    }
+    
+    .glow-animation {
+        animation: glow 2s infinite;
+    }
+    
+    /* Enhanced info boxes */
+    .stAlert {
+        border-radius: 10px;
+        border: none;
+        box-shadow: var(--card-shadow);
+    }
+    
+    /* Enhanced success messages */
+    .stSuccess {
+        background: linear-gradient(90deg, #d4edda, #c3e6cb);
+        border-left: 4px solid var(--success-color);
+    }
+    
+    /* Enhanced warning messages */
+    .stWarning {
+        background: linear-gradient(90deg, #fff3cd, #ffeaa7);
+        border-left: 4px solid var(--warning-color);
+    }
+    
+    /* Enhanced error messages */
+    .stError {
+        background: linear-gradient(90deg, #f8d7da, #f5c6cb);
+        border-left: 4px solid var(--warning-color);
+    }
+    
+    /* Enhanced info messages */
+    .stInfo {
+        background: linear-gradient(90deg, #d1ecf1, #bee5eb);
+        border-left: 4px solid var(--info-color);
+    }
+    
+    /* Progress indicators */
+    .progress-container {
+        background: #f0f0f0;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 8px;
+        margin: 1rem 0;
+    }
+    
+    .progress-bar {
+        background: var(--gradient-bg);
+        height: 100%;
+        border-radius: 10px;
+        transition: width 0.3s ease;
+    }
+    
+    /* Enhanced sidebar */
+    .css-1d391kg {
+        background: linear-gradient(180deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+        backdrop-filter: var(--backdrop-blur);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Sidebar elements */
+    .css-1d391kg .stMarkdown {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        backdrop-filter: var(--backdrop-blur);
+    }
+    
+    /* Fix sidebar text visibility with new background */
+    .css-1d391kg .stMarkdown * {
+        color: #333333 !important;
+        font-weight: 500 !important;
+    }
+    
+    .css-1d391kg .stMarkdown strong {
+        color: #000000 !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Style the Current Section indicator */
+    .css-1d391kg .stMarkdown p {
+        background: rgba(255, 255, 255, 0.9) !important;
+        padding: 0.5rem !important;
+        border-radius: 8px !important;
+        margin: 0.5rem 0 !important;
+        color: #333333 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary-color);
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .main-header h1 {
+            font-size: 2rem;
+        }
+        .metric-value {
+            font-size: 2rem;
+        }
+    }
+    /* Fix dropdown labels - make them black */
+    .stSelectbox label,
+    .stSelectbox .css-1d391kg label,
+    .stSelectbox div[data-testid="stSelectbox"] label,
+    .stSelectbox div[data-testid="stSelectbox"] + label {
+        color: #000000 !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Fix dropdown options visibility */
+    .stSelectbox div[data-testid="stSelectbox"] div[role="listbox"],
+    .stSelectbox div[data-testid="stSelectbox"] div[role="listbox"] *,
+    .stSelectbox div[data-testid="stSelectbox"] div[role="option"],
+    .stSelectbox div[data-testid="stSelectbox"] div[role="option"] *,
+    .stSelectbox div[data-testid="stSelectbox"] ul,
+    .stSelectbox div[data-testid="stSelectbox"] li,
+    .stSelectbox div[data-testid="stSelectbox"] ul *,
+    .stSelectbox div[data-testid="stSelectbox"] li * {
+        color: #000000 !important;
+        background-color: #ffffff !important;
+    }
+    
+    /* Fix dropdown input text */
+    .stSelectbox div[data-testid="stSelectbox"] input,
+    .stSelectbox div[data-testid="stSelectbox"] span,
+    .stSelectbox div[data-testid="stSelectbox"] div,
+    .stSelectbox div[data-testid="stSelectbox"] p {
+        color: #000000 !important;
+    }
+    
+    /* Fix sidebar navigation button text visibility */
+    .stButton > button {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+    }
+    
+    /* Fix sidebar navigation button text on hover */
+    .stButton > button:hover {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Fix sidebar text visibility */
+    .css-1d391kg .stMarkdown,
+    .css-1d391kg .stMarkdown * {
+        color: #333333 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Fix current section indicator text */
+    .css-1d391kg .stMarkdown strong {
+        color: #1f77b4 !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Fix Performance Insights text visibility */
+    .stInfo {
+        color: #000000 !important;
+    }
+    
+    .stInfo * {
+        color: #000000 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Fix model explanation expander text */
+    .streamlit-expanderHeader {
+        color: #333333 !important;
+        font-weight: 600 !important;
+    }
+    
+    .streamlit-expanderContent {
+        color: #333333 !important;
+    }
+    
+    .streamlit-expanderContent * {
+        color: #333333 !important;
+    }
+    
+    /* Fix metric text visibility */
+    .metric-value {
+        color: #1f77b4 !important;
+        font-weight: 700 !important;
+    }
+    
+    .metric-label {
+        color: #555555 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix section header text */
+    .section-header {
+        color: #000000 !important;
+        font-weight: 700 !important;
+        background: transparent !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+    }
+    
+    /* Fix main header text */
+    .main-header h1 {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+    }
+    
+    .main-header p {
+        color: #ffffff !important;
+        font-weight: 500 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+    }
+    
+    /* Fix all text visibility issues */
+    .stMarkdown {
+        color: #333333 !important;
+    }
+    
+    .stMarkdown * {
+        color: #333333 !important;
+    }
+    
+    /* Fix subheader text */
+    .stSubheader {
+        color: #333333 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix write text */
+    .stWrite {
+        color: #333333 !important;
+    }
+    
+    /* Fix metric text */
+    .metric {
+        color: #333333 !important;
+    }
+    
+    /* Fix dataframe text */
+    .dataframe {
+        color: #333333 !important;
+    }
+    
+    /* Fix success/error/info message text */
+    .stSuccess, .stError, .stWarning, .stInfo {
+        color: #000000 !important;
+    }
+    
+    .stSuccess *, .stError *, .stWarning *, .stInfo * {
+        color: #000000 !important;
+    }
+    
+    /* Fix sidebar header text */
+    .css-1d391kg h1, .css-1d391kg h2, .css-1d391kg h3 {
+        color: #333333 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix section indicator text */
+    .metric-card h3 {
+        color: #000000 !important;
+        font-weight: 700 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+    }
+    
+    .metric-card p {
+        color: #000000 !important;
+        font-weight: 500 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2) !important;
+    }
+    
+    /* Fix metric component visibility */
+    .stMetric {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 10px !important;
+        padding: 1rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    .stMetric > div {
+        color: #333333 !important;
+    }
+    
+    .stMetric label {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .stMetric [data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    .stMetric [data-testid="metric-container"] > div {
+        color: #333333 !important;
+    }
+    
+    .stMetric [data-testid="metric-container"] label {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+    }
+    
+    .stMetric [data-testid="metric-container"] [data-testid="metric-value"] {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 1.5rem !important;
+    }
+    
+    .stMetric [data-testid="metric-container"] [data-testid="metric-delta"] {
+        color: #2e7d32 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix Model Explanations expander visibility */
+    .streamlit-expanderHeader {
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: #333333 !important;
+        font-weight: 700 !important;
+        border-radius: 8px !important;
+        margin-bottom: 0.5rem !important;
+        padding: 1rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    .streamlit-expanderHeader:hover {
+        background: rgba(255, 255, 255, 1) !important;
+        color: #1976d2 !important;
+    }
+    
+    .streamlit-expanderContent {
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: #333333 !important;
+        border-radius: 8px !important;
+        padding: 1rem !important;
+        margin-top: 0.5rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    .streamlit-expanderContent * {
+        color: #333333 !important;
+    }
+    
+    /* Fix subheader visibility */
+    .stSubheader {
+        color: #333333 !important;
+        font-weight: 700 !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        padding: 1rem !important;
+        border-radius: 8px !important;
+        margin: 1rem 0 !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    /* Fix info box visibility */
+    .stInfo {
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%) !important;
+        color: #000000 !important;
+        border-left: 4px solid #2196f3 !important;
+        border-radius: 8px !important;
+        padding: 1.5rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+    
+    .stInfo * {
+        color: #000000 !important;
+        font-weight: 500 !important;
+    }
+    
+    .stInfo strong {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Additional metric visibility fixes */
+    [data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 10px !important;
+        padding: 1rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    [data-testid="metric-container"] label {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 0.9rem !important;
+    }
+    
+    [data-testid="metric-value"] {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 1.5rem !important;
+    }
+    
+    [data-testid="metric-delta"] {
+        color: #2e7d32 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Fix all metric-related text */
+    .element-container [data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    .element-container [data-testid="metric-container"] * {
+        color: #333333 !important;
+    }
+    
+    .element-container [data-testid="metric-container"] label {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+    }
+    
+    .element-container [data-testid="metric-container"] [data-testid="metric-value"] {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 1.5rem !important;
+    }
+    
+    /* Fix column metric containers */
+    .stColumn .stMetric,
+    .stColumn [data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 10px !important;
+        padding: 1rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        border: 1px solid #e0e0e0 !important;
+    }
+    
+    .stColumn .stMetric *,
+    .stColumn [data-testid="metric-container"] * {
+        color: #333333 !important;
+    }
+    
+    .stColumn .stMetric label,
+    .stColumn [data-testid="metric-container"] label {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+    }
+    
+    .stColumn .stMetric [data-testid="metric-value"],
+    .stColumn [data-testid="metric-container"] [data-testid="metric-value"] {
+        color: #1976d2 !important;
+        font-weight: 700 !important;
+        font-size: 1.5rem !important;
+    }
+    
+    /* Fix expander text specifically */
+    .streamlit-expanderHeader p,
+    .streamlit-expanderHeader div,
+    .streamlit-expanderHeader span {
+        color: #333333 !important;
+        font-weight: 700 !important;
+    }
+    
+    .streamlit-expanderContent p,
+    .streamlit-expanderContent div,
+    .streamlit-expanderContent span {
+        color: #333333 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Ensure all section headings are black */
+    h1, h2, h3, h4, h5, h6 {
+        color: #000000 !important;
+        font-weight: 700 !important;
     }
     
     .stSubheader {
-        color: white !important;
-        font-weight: 600 !important;
-        font-family: var(--font-heading) !important;
+        color: #000000 !important;
+        font-weight: 700 !important;
     }
     
+    /* Fix any remaining light text in sections */
     .stMarkdown h1,
     .stMarkdown h2,
     .stMarkdown h3,
     .stMarkdown h4,
     .stMarkdown h5,
     .stMarkdown h6 {
-        color: white !important;
-        font-weight: 600 !important;
-        font-family: var(--font-heading) !important;
-    }
-    
-    .element-container [data-testid="metric-container"] {
-        background: var(--glass-bg) !important;
-        backdrop-filter: var(--glass-backdrop) !important;
-        -webkit-backdrop-filter: var(--glass-backdrop) !important;
-        border: 1px solid var(--glass-border) !important;
-        border-radius: var(--radius-md) !important;
-        box-shadow: var(--glass-shadow) !important;
-    }
-    
-    .element-container [data-testid="metric-container"] * {
-        color: #1f2937 !important;
-        font-family: var(--font-primary) !important;
-    }
-    
-    .element-container [data-testid="metric-container"] label {
-        color: var(--primary-color) !important;
-        font-weight: 600 !important;
-    }
-    
-    .element-container [data-testid="metric-container"] [data-testid="metric-value"] {
-        color: var(--primary-color) !important;
+        color: #000000 !important;
         font-weight: 700 !important;
-        font-size: 1.75rem !important;
-        font-family: var(--font-heading) !important;
     }
     
-    .streamlit-expanderHeader {
-        background: var(--glass-bg) !important;
-        backdrop-filter: var(--glass-backdrop) !important;
-        -webkit-backdrop-filter: var(--glass-backdrop) !important;
-        border: 1px solid var(--glass-border) !important;
-        border-radius: var(--radius-md) !important;
-        transition: var(--transition) !important;
-    }
-    
-    .streamlit-expanderHeader p,
-    .streamlit-expanderHeader div,
-    .streamlit-expanderHeader span {
-        color: white !important;
-        font-weight: 600 !important;
-        font-family: var(--font-primary) !important;
-    }
-    
-    .streamlit-expanderContent {
-        background: var(--glass-bg) !important;
-        backdrop-filter: var(--glass-backdrop) !important;
-        -webkit-backdrop-filter: var(--glass-backdrop) !important;
-        border: 1px solid var(--glass-border) !important;
-        border-radius: var(--radius-md) !important;
-    }
-    
-    .streamlit-expanderContent p,
-    .streamlit-expanderContent div,
-    .streamlit-expanderContent span {
-        color: rgba(255, 255, 255, 0.9) !important;
-        font-weight: 400 !important;
-        font-family: var(--font-primary) !important;
-    }
     </style>
     """, unsafe_allow_html=True)
 
