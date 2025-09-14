@@ -589,6 +589,13 @@ def apply_custom_css():
         text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
     }
     
+    /* Ensure main heading is always white */
+    .main-header h1,
+    h1 {
+        color: white !important;
+        font-weight: 700 !important;
+    }
+    
     .main-header p {
         color: #ffffff !important;
         font-weight: 500 !important;
@@ -1056,7 +1063,7 @@ with st.sidebar:
 # Enhanced header with gradient background
 st.markdown("""
 <div class="main-header">
-    <h1>🏥 Pharma Sales Forecasting & Inventory Planning</h1>
+    <h1 style="color: white !important;">🏥 Pharma Sales Forecasting & Inventory Planning</h1>
     <p>Advanced AI-Powered Pharmaceutical Sales Analytics & Smart Inventory Management</p>
 </div>
 """, unsafe_allow_html=True)
