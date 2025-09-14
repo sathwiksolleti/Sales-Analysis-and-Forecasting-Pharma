@@ -21,130 +21,50 @@ def apply_custom_css():
     st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-    /* Modern minimal theme with glassmorphism */
     :root {
-        /* Color palette - Modern minimal */
         --primary-color: #3b82f6;
-        --primary-dark: #1e40af;
         --secondary-color: #8b5cf6;
-        --accent-color: #06b6d4;
-        --success-color: #10b981;
-        --warning-color: #f59e0b;
-        --error-color: #ef4444;
-        --info-color: #6366f1;
-        
-        /* Neutral colors */
-        --white: #ffffff;
-        --gray-50: #f9fafb;
-        --gray-100: #f3f4f6;
-        --gray-200: #e5e7eb;
-        --gray-300: #d1d5db;
-        --gray-400: #9ca3af;
-        --gray-500: #6b7280;
-        --gray-600: #4b5563;
-        --gray-700: #374151;
-        --gray-800: #1f2937;
-        --gray-900: #111827;
-        
-        /* Glassmorphism effects */
         --glass-bg: rgba(255, 255, 255, 0.1);
         --glass-border: rgba(255, 255, 255, 0.2);
-        --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         --glass-backdrop: blur(16px);
-        
-        /* Gradients */
-        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        --gradient-surface: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-        --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%);
-        
-        /* Shadows */
-        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-        --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
-        
-        /* Typography */
-        --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        
-        /* Transitions */
-        --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        
-        /* Border radius */
-        --radius-sm: 6px;
-        --radius-md: 12px;
+        --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        --font-primary: 'Inter', sans-serif;
+        --font-heading: 'Poppins', sans-serif;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         --radius-lg: 16px;
-        --radius-xl: 24px;
+        --radius-md: 12px;
     }
     
-    /* Global typography */
     * {
         font-family: var(--font-primary);
     }
     
-    /* Main app background - Modern glassmorphism */
     .main .block-container {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        position: relative;
+        padding: 2rem;
     }
     
-    .main .block-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
-        pointer-events: none;
-    }
-    
-    /* Styling for the main content area */
     .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        font-family: var(--font-primary);
     }
     
-    /* Enhanced header styling - Glassmorphism */
     .main-header {
         background: var(--glass-bg);
         backdrop-filter: var(--glass-backdrop);
         -webkit-backdrop-filter: var(--glass-backdrop);
         border: 1px solid var(--glass-border);
         padding: 3rem 2rem;
-        border-radius: var(--radius-xl);
+        border-radius: var(--radius-lg);
         margin-bottom: 2rem;
         box-shadow: var(--glass-shadow);
         text-align: center;
         color: white;
-        position: relative;
-        overflow: hidden;
-        animation: slideInDown 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        transition: var(--transition-normal);
+        transition: var(--transition);
     }
     
     .main-header:hover {
         transform: translateY(-2px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    }
-    
-    .main-header::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--gradient-surface);
-        opacity: 0.3;
-        animation: shimmer 4s ease-in-out infinite;
     }
     
     .main-header h1 {
@@ -153,74 +73,13 @@ def apply_custom_css():
         font-weight: 700;
         margin: 0;
         color: white !important;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1), subtleGlow 3s ease-in-out 2s infinite alternate;
-        position: relative;
-        letter-spacing: -0.02em;
     }
     
     .main-header p {
-        font-family: var(--font-primary);
         font-size: 1.25rem;
-        font-weight: 400;
-        margin: 0.5rem 0 0 0;
         color: rgba(255, 255, 255, 0.9) !important;
-        opacity: 0;
-        animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
-        letter-spacing: 0.01em;
     }
     
-    /* Modern animations */
-    @keyframes slideInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes shimmer {
-        0% {
-            transform: translateX(-100%);
-        }
-        100% {
-            transform: translateX(100%);
-        }
-    }
-    
-    @keyframes subtleGlow {
-        from {
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3), 0 0 8px rgba(255,255,255,0.2);
-        }
-        to {
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3), 0 0 16px rgba(255,255,255,0.4), 0 0 24px rgba(255,255,255,0.2);
-        }
-    }
-    
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0px);
-        }
-        50% {
-            transform: translateY(-4px);
-        }
-    }
-    
-    /* Enhanced metric cards - Glassmorphism */
     .metric-card {
         background: var(--glass-bg);
         backdrop-filter: var(--glass-backdrop);
@@ -229,28 +88,12 @@ def apply_custom_css():
         padding: 2rem 1.5rem;
         border-radius: var(--radius-lg);
         box-shadow: var(--glass-shadow);
-        transition: var(--transition-normal);
+        transition: var(--transition);
         margin-bottom: 1rem;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .metric-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--gradient-surface);
-        opacity: 0.1;
-        pointer-events: none;
     }
     
     .metric-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        border-color: rgba(255, 255, 255, 0.3);
     }
     
     .metric-value {
@@ -259,24 +102,17 @@ def apply_custom_css():
         font-weight: 700;
         color: var(--primary-color);
         margin: 0;
-        position: relative;
-        z-index: 1;
     }
     
     .metric-label {
-        font-family: var(--font-primary);
         font-size: 0.875rem;
-        color: var(--gray-600);
-        margin: 0;
+        color: #6b7280;
+        margin: 0 0 0.75rem 0;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 600;
-        margin-bottom: 0.75rem;
-        position: relative;
-        z-index: 1;
     }
     
-    /* Enhanced section headers - Glassmorphism */
     .section-header {
         background: var(--glass-bg);
         backdrop-filter: var(--glass-backdrop);
@@ -289,74 +125,51 @@ def apply_custom_css():
         font-family: var(--font-heading);
         font-size: 1.75rem;
         font-weight: 600;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         box-shadow: var(--glass-shadow);
-        transition: var(--transition-normal);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .section-header::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--gradient-surface);
-        opacity: 0.2;
-        pointer-events: none;
+        transition: var(--transition);
     }
     
     .section-header:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     }
     
-    /* Enhanced data tables - Modern minimal */
     .dataframe {
         border-radius: var(--radius-lg);
         overflow: hidden;
-        box-shadow: var(--shadow-lg);
-        border: 1px solid var(--gray-200);
-        background: var(--white);
-        font-family: var(--font-primary);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e5e7eb;
+        background: white;
     }
     
     .dataframe th {
-        background: var(--gradient-primary) !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         color: white !important;
         font-weight: 600;
         text-align: center;
         padding: 1rem 0.75rem !important;
         font-size: 0.875rem;
-        letter-spacing: 0.025em;
-        text-transform: uppercase;
     }
     
     .dataframe td {
         text-align: center;
         padding: 0.875rem 0.75rem !important;
         font-size: 0.875rem;
-        color: var(--gray-700);
-        border-bottom: 1px solid var(--gray-100);
+        color: #374151;
     }
     
     .dataframe tr:nth-child(even) {
-        background-color: var(--gray-50);
+        background-color: #f9fafb;
     }
     
     .dataframe tr:hover {
         background-color: var(--primary-color);
         color: white;
-        transition: var(--transition-fast);
     }
     
     .dataframe tr:hover td {
         color: white;
     }
     
-    /* Enhanced buttons - Glassmorphism */
     .stButton > button {
         background: var(--glass-bg);
         backdrop-filter: var(--glass-backdrop);
@@ -365,46 +178,39 @@ def apply_custom_css():
         color: white;
         border-radius: var(--radius-md);
         padding: 0.875rem 2rem;
-        font-family: var(--font-primary);
         font-weight: 600;
         font-size: 0.875rem;
-        transition: var(--transition-normal);
-        box-shadow: var(--shadow-md);
-        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-        letter-spacing: 0.025em;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .stButton > button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--gradient-surface);
-        opacity: 0;
-        transition: var(--transition-fast);
-        pointer-events: none;
+        transition: var(--transition);
+        box-shadow: var(--glass-shadow);
     }
     
     .stButton > button:hover {
         transform: translateY(-2px);
-        box-shadow: var(--shadow-xl);
-        border-color: rgba(255, 255, 255, 0.4);
     }
     
-    .stButton > button:hover::before {
-        opacity: 0.3;
+    h1, h2, h3, h4, h5, h6 {
+        color: white !important;
+        font-weight: 600 !important;
+        font-family: var(--font-heading) !important;
     }
     
-    .stButton > button:active {
-        transform: translateY(0);
-        box-shadow: var(--shadow-md);
+    .stSubheader {
+        color: white !important;
+        font-weight: 600 !important;
+        font-family: var(--font-heading) !important;
     }
     
-    /* Fix all metric-related text - Glassmorphism */
+    .stMarkdown h1,
+    .stMarkdown h2,
+    .stMarkdown h3,
+    .stMarkdown h4,
+    .stMarkdown h5,
+    .stMarkdown h6 {
+        color: white !important;
+        font-weight: 600 !important;
+        font-family: var(--font-heading) !important;
+    }
+    
     .element-container [data-testid="metric-container"] {
         background: var(--glass-bg) !important;
         backdrop-filter: var(--glass-backdrop) !important;
@@ -415,15 +221,13 @@ def apply_custom_css():
     }
     
     .element-container [data-testid="metric-container"] * {
-        color: var(--gray-800) !important;
+        color: #1f2937 !important;
         font-family: var(--font-primary) !important;
     }
     
     .element-container [data-testid="metric-container"] label {
         color: var(--primary-color) !important;
         font-weight: 600 !important;
-        font-size: 0.875rem !important;
-        letter-spacing: 0.025em !important;
     }
     
     .element-container [data-testid="metric-container"] [data-testid="metric-value"] {
@@ -433,60 +237,13 @@ def apply_custom_css():
         font-family: var(--font-heading) !important;
     }
     
-    /* Fix column metric containers - Glassmorphism */
-    .stColumn .stMetric,
-    .stColumn [data-testid="metric-container"] {
-        background: var(--glass-bg) !important;
-        backdrop-filter: var(--glass-backdrop) !important;
-        -webkit-backdrop-filter: var(--glass-backdrop) !important;
-        border: 1px solid var(--glass-border) !important;
-        border-radius: var(--radius-md) !important;
-        padding: 1.25rem !important;
-        box-shadow: var(--glass-shadow) !important;
-        transition: var(--transition-normal) !important;
-    }
-    
-    .stColumn .stMetric:hover,
-    .stColumn [data-testid="metric-container"]:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
-    }
-    
-    .stColumn .stMetric *,
-    .stColumn [data-testid="metric-container"] * {
-        color: var(--gray-800) !important;
-        font-family: var(--font-primary) !important;
-    }
-    
-    .stColumn .stMetric label,
-    .stColumn [data-testid="metric-container"] label {
-        color: var(--primary-color) !important;
-        font-weight: 600 !important;
-        font-size: 0.875rem !important;
-        letter-spacing: 0.025em !important;
-    }
-    
-    .stColumn .stMetric [data-testid="metric-value"],
-    .stColumn [data-testid="metric-container"] [data-testid="metric-value"] {
-        color: var(--primary-color) !important;
-        font-weight: 700 !important;
-        font-size: 1.75rem !important;
-        font-family: var(--font-heading) !important;
-    }
-    
-    /* Fix expander text specifically - Modern styling */
     .streamlit-expanderHeader {
         background: var(--glass-bg) !important;
         backdrop-filter: var(--glass-backdrop) !important;
         -webkit-backdrop-filter: var(--glass-backdrop) !important;
         border: 1px solid var(--glass-border) !important;
         border-radius: var(--radius-md) !important;
-        margin-bottom: 0.5rem !important;
-        transition: var(--transition-normal) !important;
-    }
-    
-    .streamlit-expanderHeader:hover {
-        background: rgba(255, 255, 255, 0.15) !important;
+        transition: var(--transition) !important;
     }
     
     .streamlit-expanderHeader p,
@@ -503,7 +260,6 @@ def apply_custom_css():
         -webkit-backdrop-filter: var(--glass-backdrop) !important;
         border: 1px solid var(--glass-border) !important;
         border-radius: var(--radius-md) !important;
-        margin-top: 0.5rem !important;
     }
     
     .streamlit-expanderContent p,
@@ -513,33 +269,6 @@ def apply_custom_css():
         font-weight: 400 !important;
         font-family: var(--font-primary) !important;
     }
-    
-    /* Ensure all section headings are modern */
-    h1, h2, h3, h4, h5, h6 {
-        color: white !important;
-        font-weight: 600 !important;
-        font-family: var(--font-heading) !important;
-        letter-spacing: -0.025em !important;
-    }
-    
-    .stSubheader {
-        color: white !important;
-        font-weight: 600 !important;
-        font-family: var(--font-heading) !important;
-    }
-    
-    /* Fix any remaining light text in sections */
-    .stMarkdown h1,
-    .stMarkdown h2,
-    .stMarkdown h3,
-    .stMarkdown h4,
-    .stMarkdown h5,
-    .stMarkdown h6 {
-        color: white !important;
-        font-weight: 600 !important;
-        font-family: var(--font-heading) !important;
-    }
-    
     </style>
     """, unsafe_allow_html=True)
 
