@@ -150,7 +150,7 @@ def apply_custom_css():
     /* Enhanced section headers */
     .section-header {
         background: transparent;
-        color: #000000;
+        color: #ffffff;
         padding: 1.2rem 1.5rem;
         border-radius: 12px;
         margin: 2rem 0 1rem 0;
